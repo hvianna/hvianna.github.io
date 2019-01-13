@@ -59,5 +59,10 @@ img {
 }
 
 .projects ul li {
+	margin-bottom: 40px;
 	text-align: center;
+}
+.projects .description {
+	font-size: 13px;
+	font-weight: 400;
 }
