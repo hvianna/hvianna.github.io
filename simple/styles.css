@@ -1,0 +1,41 @@
+/* --- import only the font you want to use --- */
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400|Noto+Sans|Rubik:300,400|Quicksand|Libre+Franklin:300,400');
+
+/* --- change the font name accordingly below --- */
+body {
+  font-family: 'Fira Sans', sans-serif;
+  line-height: 1.6;
+  color: #222;
+  max-width: 40rem;
+  padding: 2rem;
+  margin: auto;
+  background: #fafafa;
+}
+img {
+  max-width: 100%;
+}
+a {
+  color: #04b71b;
+  text-decoration: none;
+}
+h1, h2, strong {
+  color: #111;
+}
+button, input, select, textarea {
+  font: inherit;
+  padding: .4rem;
+}
+button, input[type="button"] {
+  padding: .2rem .4rem;
+}
+
+/* -----8<----- done, cut here -----8<----- */
+
+.selector {
+  background: #fafafa;
+  padding: .4rem;
+  position: fixed;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
