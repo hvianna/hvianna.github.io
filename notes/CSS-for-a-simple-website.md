@@ -1,0 +1,24 @@
+From https://blog.koley.in/baserock/
+
+```
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300');
+body {
+  font-family: 'Fira Sans', sans-serif;
+  line-height: 1.6;
+  color: #222;
+  max-width: 40rem;
+  padding: 2rem;
+  margin: auto;
+  background: #fafafa;
+}
+img {
+  max-width: 100%;
+}
+a {
+  color: #2ECC40;
+  text-decoration: none;
+}
+h1, h2, strong {
+  color: #111;
+}
+```
