@@ -3,6 +3,7 @@
 + [CSS native font stacks](CSS-native-font-stacks)
 + [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
 + [CSS for a simple website](CSS-for-a-simple-website) - [Demo site](https://hvianna.github.io/simple/)
++ [Brutalist web design](https://brutalist-web.design/)
 + [CSS Grid Generator](https://cssgrid-generator.netlify.com/) (article on [How to Stack Elements in CSS](https://css-tricks.com/how-to-stack-elements-in-css/))
 + [Understanding CSS Grid](https://www.smashingmagazine.com/2020/01/understanding-css-grid-container/)
 
@@ -25,6 +26,7 @@
 + [ES2015+ cheatsheet](https://devhints.io/es6) / [ES2015 features](https://babeljs.io/docs/en/learn/)
 + [JavaScript module systems showdown](https://auth0.com/blog/javascript-module-systems-showdown/)
 + **Clean Code:** [Summary](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29) - [Concepts adapted for JavaScript](https://github.com/ryanmcdermott/clean-code-javascript) (também em [pt-BR](https://github.com/felipe-augusto/clean-code-javascript))
++ [Functional programming in JS](https://softwarebrothers.co/blog/functional-programming-in-javascript/)
 
 ## node.js
 + [node Basics](node-basics)
