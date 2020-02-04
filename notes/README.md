@@ -20,6 +20,7 @@
 ## JavaScript
 + [Draft ECMA-262 ECMAScript "Next" Language Specification](https://tc39.github.io/ecma262/)
 + [Web IDL (Interface Definition Language)](https://heycam.github.io/webidl/)
++ **Understanding the ECMAScript spec:** [part 1](https://v8.dev/blog/understanding-ecmascript-part-1)
 + [EcmaScript compatibility table](http://kangax.github.io/compat-table/es6/)
 + [JSHint - JavaScript Code Analysis Tool](https://jshint.com/)
 + [JavaScript Basics](JavaScript-Basics)
