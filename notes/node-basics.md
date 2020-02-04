@@ -2,6 +2,8 @@
 nav_exclude: true
 ---
 
+# Node.js basics
+
 + [npm docs home](https://docs.npmjs.com/) / [npm install](https://docs.npmjs.com/cli/install)
 
 > When installing a package that will be bundled into your production bundle, you should use `npm install --save`. If you're installing a package for development purposes (e.g. a linter, testing libraries, etc.) then you should use `npm install --save-dev`.
@@ -35,5 +37,6 @@ nav_exclude: true
 
 ### Compiling a node.js script to a standalone application
 
-+ https://github.com/zeit/pkg
-+ https://electronjs.org/
++ [pkg](https://github.com/zeit/pkg)
++ [nexe](https://github.com/nexe/nexe)
++ [Electron](https://electronjs.org/)

@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 [<img src="https://avatars3.githubusercontent.com/u/1033735" width="200">](https://github.com/hvianna)
 
 [hvianna@GitHub](https://github.com/hvianna)

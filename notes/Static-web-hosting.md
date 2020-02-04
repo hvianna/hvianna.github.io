@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # Static web hosting services
 
 | Host | Custom domain | Custom HTTPS | Deploy | Paid plan cost |
