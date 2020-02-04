@@ -3,7 +3,7 @@
 ## Projects
 
 + [audioMotion](https://audiomotion.me)
-+ [desktopCal.js](https://github.com/hvianna/desktopCal.js
++ [desktopCal.js](https://github.com/hvianna/desktopCal.js)
 
 ## Notes and bookmarks about programming
 
