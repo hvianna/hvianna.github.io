@@ -1,4 +1,5 @@
 title: Henrique Vianna
-description: Personal notes
+description: Programming notes and bookmarks
 plugins:
   - jemoji
+remote_theme: mmistakes/minimal-mistakes
