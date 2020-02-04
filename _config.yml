@@ -1,5 +1,12 @@
 title: Henrique Vianna
-description: Programming notes and bookmarks
+description: Greetings, Programs!
 plugins:
   - jemoji
 remote_theme: pmarsceill/just-the-docs
+
+# Just the Docs theme options
+logo: "https://avatars3.githubusercontent.com/u/1033735"
+footer_content: "Copyright &copy; 2018-2020 Henrique Avila Vianna."
+aux_links:
+  "See on GitHub":
+    - "https://github.com/hvianna/hvianna.github.io"
