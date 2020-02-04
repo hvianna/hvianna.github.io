@@ -1,4 +1,3 @@
-# Henrique Vianna
 [<img src="https://avatars3.githubusercontent.com/u/1033735" width="200">](https://github.com/hvianna)
 
 [hvianna@GitHub](https://github.com/hvianna)
@@ -14,5 +13,3 @@
 Create your own calendars to print or use as wallpaper
 
 [![desktopCal-header](https://raw.githubusercontent.com/hvianna/desktopCal.js/master/img/sharing.png)](https://github.com/hvianna/desktopCal.js)
-
-
