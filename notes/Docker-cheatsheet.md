@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 Parar um container (não remove):
 ```
 docker stop <id> | <name>

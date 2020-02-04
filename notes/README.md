@@ -1,3 +1,7 @@
+---
+nav_order: 0
+---
+
 # Notes and bookmarks
 
 ## CSS

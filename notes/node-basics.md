@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 + [npm docs home](https://docs.npmjs.com/) / [npm install](https://docs.npmjs.com/cli/install)
 
 > When installing a package that will be bundled into your production bundle, you should use `npm install --save`. If you're installing a package for development purposes (e.g. a linter, testing libraries, etc.) then you should use `npm install --save-dev`.

@@ -1,3 +1,5 @@
+# Static web hosting services
+
 | Host | Custom domain | Custom HTTPS | Deploy | Paid plan cost |
 |------|---------------|--------------|--------|----------------|
 | [Google Sites](https://sites.google.com) | Yes (no 'naked' domain) | Yes | No | No |
