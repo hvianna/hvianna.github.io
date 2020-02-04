@@ -1,13 +1,15 @@
+# MKVMerge
+
+**Download:**
+[https://mkvtoolnix.download/](https://mkvtoolnix.download/)
+
 ## Criar capítulos
 
 ```
 mkvmerge input.mkv --chapters chapters.txt -o output.mkv
 ```
 
-**Download:**
-[https://mkvtoolnix.download/](https://mkvtoolnix.download/)
-
---- 
+---
 
 Formato do arquivo *chapters.txt*:
 
