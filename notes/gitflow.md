@@ -62,7 +62,7 @@ Branches de funcionalidades tipicamente existem apenas nos repositórios dos des
 
 Ao iniciar o trabalho em uma nova funcionalidade, crie uma branch a partir da `develop`.
 
-```
+```console
 $ git checkout -b minha-funcionalidade develop
 Switched to a new branch "minha-funcionalidade"
 ```
@@ -71,12 +71,12 @@ Switched to a new branch "minha-funcionalidade"
 
 Funcionalidades concluídas podem ser mescladas de volta à branch `develop` para adicioná-las definitivamente ao próximo lançamento:
 
-```
+```console
 $ git checkout develop
 Switched to branch 'develop'
 $ git merge --no-ff minha-funcionalidade
 Updating ea1b82a..05e9557
-(Summary of changes)
+(Resumo das alterações)
 $ git branch -d minha-funcionalidade
 Deleted branch minha-funcionalidade (was 05e9557).
 $ git push origin develop
@@ -107,7 +107,7 @@ O momento chave de criar uma nova branch de *release* é quando a `develop` est�
 
 Branches de lançamento são criadas a partir da branch `develop`. Por exemplo, digamos que a versão 1.1.5 é a atual versão de produção e nós temos um grande lançamento a fazer. A `develop` neste momento está pronta para o "próximo lançamento" e decidimos que esta será a versão 1.2 (ao invés de 1.1.6 ou 2.0). Então criamos a branch com um nome que reflete o novo número de versão:
 
-```
+```console
 $ git checkout -b release-1.2 develop
 Switched to a new branch "release-1.2"
 $ ./bump-version.sh 1.2
@@ -127,7 +127,7 @@ Quando a branch de *release* está pronta para se tornar um lançamento de fato,
 
 Os primeiros dois passos no Git:
 
-```
+```console
 $ git checkout master
 Switched to branch 'master'
 $ git merge --no-ff release-1.2
@@ -140,7 +140,7 @@ O lançamento agora está feito, e rotulado para referências futuras.
 
 Para manter as alterações feitas na branch de *release*, precisamos mesclá-las de volta à `develop`. No Git:
 
-```
+```console
 $ git checkout develop
 Switched to branch 'develop'
 $ git merge --no-ff release-1.2
@@ -152,7 +152,7 @@ Este passo pode gerar um conflito no merge (provavelmente, uma vez que alteramos
 
 Agora realmente terminamos e a branch de *release* pode ser removida, uma vez que não precisaremos mais dela:
 
-```
+```console
 $ git branch -d release-1.2
 Deleted branch release-1.2 (was ff452fe).
 ```
@@ -174,7 +174,7 @@ A ideia é que o trabalho da equipe possa continuar na branch `develop`, enquant
 
 Branches de correção são criadas a partir da branch `master`. Digamos que a versão 1.2 é o lançamento atual rodando no servidor de produção e está gerando erros devido a um bug grave. Mas as alterações na `develop` ainda estão instáveis.  Podemos então criar uma branch de *hotfix* e começar a corrigir o problema:
 
-```
+```console
 $ git checkout -b hotfix-1.2.1 master
 Switched to a new branch "hotfix-1.2.1"
 $ ./bump-version.sh 1.2.1
@@ -188,7 +188,7 @@ Não esqueça de atualizar o número de versão após criar a branch!
 
 Então, corrija o bug e faça um ou mais commits, conforme necessário.
 
-```
+```console
 $ git commit -m "Corrigido problema grave no produção"
 [hotfix-1.2.1 abbe5d6] Corrigido problema grave no produção
 5 files changed, 32 insertions(+), 17 deletions(-)
@@ -200,7 +200,7 @@ Quando finalizada, a correção precisa ser mesclada de volta à `master`, e tam
 
 Primeiro, atualize a `master` e rotule o lançamento.
 
-```
+```console
 $ git checkout master
 Switched to branch 'master'
 $ git merge --no-ff hotfix-1.2.1
@@ -211,7 +211,7 @@ $ git tag -a 1.2.1
 
 A seguir, inclua a correção na `develop` também:
 
-```
+```console
 $ git checkout develop
 Switched to branch 'develop'
 $ git merge --no-ff hotfix-1.2.1
@@ -223,7 +223,7 @@ A única exceção a esta regra é que, quando houver uma branch de *release* em
 
 Por fim, remova a branch temporária:
 
-```
+```console
 $ git branch -d hotfix-1.2.1
 Deleted branch hotfix-1.2.1 (was abbe5d6).
 ```
