@@ -4,11 +4,11 @@ title: gitflow
 
 # Um modelo bem-sucedido de branches para Git ("gitflow")
 
-Resumo traduzido por [Henrique Vianna](https://github.com/hvianna/) do [post original em inglês](https://nvie.com/posts/a-successful-git-branching-model/) de [Vincent Driessen](https://nvie.com/about/)
+Resumo traduzido do inglês por [Henrique Vianna](https://github.com/hvianna/) do [post original de Vincent Driessen](https://nvie.com/posts/a-successful-git-branching-model/)
 
 <p align="center"><img height="762" src="img/git-model-pt.png"></p>
 
-O modelo apresentado aqui é, essencialmente, apenas um **conjunto de procedimentos que todo o membro da equipe deve seguir** para que se obtenha um processo gerenciado de desenvolvimento de software.
+O modelo apresentado aqui é, essencialmente, apenas um **conjunto de procedimentos que os membros da equipe devem seguir** para que se obtenha um processo gerenciado de desenvolvimento de software.
 
 ## Descentralizado mas centralizado
 
@@ -16,7 +16,10 @@ A configuração de repositório sugerida para este modelo é baseada em um repo
 
 <p align="center"><img height="361" src="img/centr-decentr@2x.png"></p>
 
-Desenvolvedores também podem trocar alterações diretamente entre si, formando sub-equipes. Para isto, basta definir um remoto do Git que aponte para o repositório do colega. Isto pode ser útil, por exemplo, para trabalhar com dois ou mais desenvolvedores em uma grande *feature* nova, antes de enviar o trabalho em andamento para o `origin` prematuramente.
+Desenvolvedores também podem trocar alterações diretamente entre si, formando sub-equipes.
+Para isto, basta definir um remoto do Git que aponte para o repositório do colega.
+Isto pode ser útil, por exemplo, para trabalhar com dois ou mais desenvolvedores em uma grande *feature* nova,
+antes de enviar trabalho em andamento prematuramente para o `origin`.
 
 ## As branches principais
 
