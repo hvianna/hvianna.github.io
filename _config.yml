@@ -5,8 +5,13 @@ plugins:
 remote_theme: pmarsceill/just-the-docs
 
 # Just the Docs theme options
-#logo: "https://avatars3.githubusercontent.com/u/1033735"
+logo: "/img/audioMotion-logo.png"
 footer_content: "Copyright &copy; 2018-2020 Henrique Avila Vianna."
+color_scheme: "dark"
 aux_links:
-  "See on GitHub":
+  "Demo":
+    - "https://audiomotion.me/public/"
+  "Download":
+    - "https://github.com/hvianna/audioMotion.js/releases"
+  "View on GitHub":
     - "https://github.com/hvianna/hvianna.github.io"
