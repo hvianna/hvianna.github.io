@@ -7,7 +7,7 @@ remote_theme: pmarsceill/just-the-docs
 # Just the Docs theme options
 logo: "/img/audioMotion-logo.png"
 footer_content: "Copyright &copy; 2018-2020 Henrique Avila Vianna."
-color_scheme: "dark"
+#color_scheme: "dark"
 aux_links:
   "Demo":
     - "https://audiomotion.me/public/"
