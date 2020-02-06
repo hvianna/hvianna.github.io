@@ -1,0 +1,36 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Slate theme */
+
+/*
+body {
+	font-size: 18px;
+}
+
+li img {
+	background: #f2f2f2;
+	border: none;
+	box-shadow: none;
+	margin: 5px 5px 5px -20px;
+	padding: 0;
+	vertical-align: middle;
+}
+*/
+
+/* Just the Docs theme */
+
+a {
+/*	color: #6ab8fd;  blue */
+/*	color: #29bcff;  cyan */
+	color: #fddf6a; /* yellow */
+}
+
+.page-content ul li img {
+/*	background: #fff; */
+	background: #27262b; /* dark mode */
+	margin-left: -25px;
+	position: absolute;
+}
