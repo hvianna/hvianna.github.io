@@ -3,17 +3,18 @@
 /* Just the Docs theme */
 
 :root{
+/* light mode - accent colors: blue, blue, orange */
 	--background-color: #fff;
-	--accent-color-1: #027db7; /* blue */
-	--accent-color-2: #027db7; /* blue */
-	--accent-color-3: #db3a24; /* orange */
+	--accent-color-1: #027db7;
+	--accent-color-2: #027db7;
+	--accent-color-3: #db3a24;
 
-/* for dark mode: */
+/* dark mode - accent colors: yellow, blue, cyan */
 /*
 	--background-color: #27262b;
-	--accent-color-1: #fddf6a; /* yellow */
-	--accent-color-2: #6ab8fd; /* blue */
-	--accent-color-3: #29bcff; /* cyan */
+	--accent-color-1: #fddf6a;
+	--accent-color-2: #6ab8fd;
+	--accent-color-3: #29bcff;
 */
 }
 
