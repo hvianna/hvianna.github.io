@@ -22,6 +22,7 @@
 ## JavaScript
 + :notebook_with_decorative_cover: [Draft ECMA-262 ECMAScript "Next" Language Specification](https://tc39.github.io/ecma262/)
 + :notebook_with_decorative_cover: [Web IDL (Interface Definition Language)](https://heycam.github.io/webidl/)
++ :open_book: [JavaScript for impatient programmers (ebook)](https://exploringjs.com/impatient-js/index.html)
 + :open_book: [Understanding the ECMAScript spec](https://v8.dev/blog/understanding-ecmascript-part-1)
 + :memo: [JavaScript Basics](JavaScript-Basics)
 + :mega: [What's new in ES2020](https://alligator.io/js/es2020/)
