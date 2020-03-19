@@ -176,9 +176,9 @@ ffmpeg -ss 30 -t 3 -i input.mp4 -i palette.png -filter_complex
 
 Referências:
 
-+ https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality
-+ http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
-+ https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg
++ [https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality](https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality)
++ [http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html](http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html)
++ [https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg](https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg)
 
 ## Áudio
 
