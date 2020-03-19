@@ -2,6 +2,7 @@
 layout: default
 title: Docker basics
 parent: Server tools
+grand_parent: Notes and bookmarks
 nav_order: 1
 ---
 

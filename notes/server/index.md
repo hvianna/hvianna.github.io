@@ -7,9 +7,3 @@ parent: Notes and bookmarks
 ---
 
 # Server tools
-
-+ [Docker basics](docker)
-+ [Docker Cheatsheet](docker-cheatsheet)
-+ [D-Link ShareCenter DNS-320L NAS](DNS-320L)
-+ [Static web hosting services](web-hosting)
-

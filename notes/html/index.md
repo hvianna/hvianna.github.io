@@ -12,7 +12,6 @@ parent: Notes and bookmarks
 
 ## CSS
 + :notebook_with_decorative_cover: [CSS Standard & Drafts](https://www.w3.org/Style/CSS/)
-+ :memo: [CSS native font stacks](css-native-font-stacks)
 + :bulb: [A simple website](https://blog.koley.in/baserock/) - [CSS code](https://gist.github.com/hvianna/eaa782ca66c768c3fc90bb21d33c75cc) - [Demo site with font selector](https://hvianna.github.io/simple/)
 + :bulb: [Brutalist web design](https://brutalist-web.design/)
 + :open_book: [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)

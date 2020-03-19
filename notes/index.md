@@ -6,13 +6,3 @@ has_children: true
 ---
 
 # Notes and bookmarks
-
-## HTML / CSS
-
-## JavaScript
-
-## Programming
-
-## Video tools
-
-## Server tools

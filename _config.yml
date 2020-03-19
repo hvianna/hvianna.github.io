@@ -7,6 +7,6 @@ remote_theme: pmarsceill/just-the-docs
 # Just the Docs theme options
 #footer_content: "Copyright &copy; 2018-2020 Henrique Avila Vianna."
 #color_scheme: "dark"
-aux_links:
-  "View on GitHub":
-    - "https://github.com/hvianna/hvianna.github.io"
+#aux_links:
+#  "View on GitHub":
+#    - "https://github.com/hvianna/hvianna.github.io"

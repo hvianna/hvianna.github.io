@@ -2,6 +2,7 @@
 layout: default
 title: Node.js basics
 parent: JavaScript
+grand_parent: Notes and bookmarks
 nav_order: 2
 ---
 

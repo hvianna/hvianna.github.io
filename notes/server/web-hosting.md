@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Static web hosting
-parent: HTML / CSS
+parent: Server tools
+grand_parent: Notes and bookmarks
 nav_order: 2
 ---
 

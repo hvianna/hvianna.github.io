@@ -7,6 +7,3 @@ parent: Notes and bookmarks
 ---
 
 # Video tools
-
-+ [FFmpeg](FFmpeg)
-+ [MKVMerge](MKVMerge)

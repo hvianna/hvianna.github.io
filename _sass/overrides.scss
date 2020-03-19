@@ -20,11 +20,6 @@ a {
 /*	color: var(--accent-color-1); */
 }
 
-a:not([class]):hover {
-	background-image: linear-gradient( 90deg, #23d2ff, #4a68f7, #8550ff, #c63bf3, #fa5476, #ffdf43 );
-	background-size: 100% 1px;
-}
-
 /* emoji in unordered lists */
 .page-content ul li img {
 	background: var(--background-color);

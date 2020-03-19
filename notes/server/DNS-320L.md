@@ -2,6 +2,7 @@
 layout: default
 title: D-Link DNS-320L NAS
 parent: Server tools
+grand_parent: Notes and bookmarks
 nav_order: 3
 ---
 
