@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Notes and bookmarks
-nav_order: 4
+nav_order: 6
 has_children: true
 ---
 
