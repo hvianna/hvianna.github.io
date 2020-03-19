@@ -3,7 +3,7 @@ layout: default
 title: Static web hosting
 parent: Server tools
 grand_parent: Notes and bookmarks
-nav_order: 2
+nav_order: 4
 ---
 
 # Static web hosting services

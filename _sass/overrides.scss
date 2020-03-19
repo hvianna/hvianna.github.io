@@ -20,8 +20,13 @@ a {
 /*	color: var(--accent-color-1); */
 }
 
-/* emoji in unordered lists */
 .page-content ul li img {
+	margin-left: -10px;
+	vertical-align: middle
+}
+
+/* emoji in unordered lists */
+.page-content ul li img.emoji {
 	background: var(--background-color);
 	margin-left: -25px;
 	position: absolute;
