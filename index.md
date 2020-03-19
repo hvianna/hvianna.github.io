@@ -12,8 +12,14 @@ permalink: /
 
 ## Projects:
 
+### audioMotion
+
 [![](https://audiomotion.me/docs/img/audioMotion-header.png)](https://audiomotion.me)
 
+### desktopCal.js
+
 [![](https://raw.githubusercontent.com/hvianna/desktopCal.js/master/img/sharing.png)](https://github.com/hvianna/desktopCal.js)
+
+### Xplorer 2019
 
 [![](https://henriquevianna.com/Xplorer2019/img/Xplorer2019.png)](https://henriquevianna.com/Xplorer2019)
