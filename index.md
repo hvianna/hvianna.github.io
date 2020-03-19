@@ -7,8 +7,8 @@ permalink: /
 
 [<img src="https://avatars3.githubusercontent.com/u/1033735" width="200">](https://github.com/hvianna)
 
-[![](/img/github.png) @hvianna](https://github.com/hvianna)
-[![](/img/twitter.png) @HenriqueVianna](https://twitter.com/HenriqueVianna)
++ [![](/img/github.png) @hvianna](https://github.com/hvianna)
++ [![](/img/twitter.png) @HenriqueVianna](https://twitter.com/HenriqueVianna)
 
 ## Projects:
 
