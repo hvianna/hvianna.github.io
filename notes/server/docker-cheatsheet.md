@@ -1,5 +1,8 @@
 ---
-nav_exclude: true
+layout: default
+title: Docker cheatsheet
+parent: Server tools
+nav_order: 2
 ---
 
 # Docker cheatsheet

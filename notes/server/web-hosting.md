@@ -1,5 +1,8 @@
 ---
-nav_exclude: true
+layout: default
+title: Static web hosting
+parent: HTML / CSS
+nav_order: 2
 ---
 
 # Static web hosting services

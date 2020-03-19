@@ -1,5 +1,8 @@
 ---
-nav_exclude: true
+layout: default
+title: CSS native font stacks
+parent: HTML / CSS
+nav_order: 1
 ---
 
 ```

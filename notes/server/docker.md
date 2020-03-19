@@ -1,3 +1,10 @@
+---
+layout: default
+title: Docker basics
+parent: Server tools
+nav_order: 1
+---
+
 # Docker
 
 + [Cheat sheet](Docker-cheatsheet)

@@ -1,5 +1,8 @@
 ---
-nav_exclude: true
+layout: default
+title: Node.js basics
+parent: JavaScript
+nav_order: 2
 ---
 
 # Node.js basics

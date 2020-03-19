@@ -1,5 +1,8 @@
 ---
+layout: default
 title: D-Link DNS-320L NAS
+parent: Server tools
+nav_order: 3
 ---
 
 # D-Link ShareCenter DNS-320L NAS

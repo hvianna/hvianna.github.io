@@ -1,5 +1,7 @@
 ---
+layout: default
 title: gitflow
+nav_order: 2
 ---
 
 # Um modelo bem-sucedido de branches para Git ("gitflow")

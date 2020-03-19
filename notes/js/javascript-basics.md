@@ -1,5 +1,8 @@
 ---
-nav_exclude: true
+layout: default
+title: JavaScript basics
+parent: JavaScript
+nav_order: 1
 ---
 
 + [Difference between `let` and `var`](https://stackoverflow.com/a/11444416/2370385)
