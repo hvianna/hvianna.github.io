@@ -4,7 +4,7 @@ title: gitflow
 
 # Um modelo bem-sucedido de branches para Git ("gitflow")
 
-Resumo traduzido do inglês por [Henrique Vianna](https://github.com/hvianna/) do [post original de Vincent Driessen](https://nvie.com/posts/a-successful-git-branching-model/)
+Resumo traduzido por [Henrique Vianna](https://github.com/hvianna/) do [post original de Vincent Driessen](https://nvie.com/posts/a-successful-git-branching-model/)
 
 <p align="center"><img height="762" src="img/git-model-pt.png"></p>
 

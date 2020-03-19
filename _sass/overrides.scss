@@ -32,6 +32,10 @@ a:not([class]):hover {
 	position: absolute;
 }
 
+.page-content a {
+	white-space: normal;
+}
+
 .page-content h2,
 .page-content h3 {
 	color: var(--accent-color-2);
