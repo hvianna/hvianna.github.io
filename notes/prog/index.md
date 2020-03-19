@@ -7,6 +7,7 @@ parent: Notes and bookmarks
 
 # Programming
 
-+ [Um modelo bem-sucedido de branches para Git ("git flow")](/gitflow)
-+ [Cheat sheet do git flow (Português)](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
-+ [gitflow-avh Git extensions](https://github.com/petervanderdoes/gitflow-avh)
++ [gitflow - Um modelo bem-sucedido de branches para Git](/gitflow)
+  + [Cheat sheet do git flow (Português)](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
+  + [gitflow-avh Git extensions](https://github.com/petervanderdoes/gitflow-avh)
++ [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
