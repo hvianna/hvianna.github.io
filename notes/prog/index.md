@@ -2,6 +2,7 @@
 layout: default
 title: Programming
 nav_order: 3
+parent: Notes and bookmarks
 ---
 
 # Programming
