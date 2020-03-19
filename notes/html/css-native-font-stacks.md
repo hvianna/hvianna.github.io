@@ -2,6 +2,7 @@
 layout: default
 title: CSS native font stacks
 parent: HTML / CSS
+grand_parent: Notes and bookmarks
 nav_order: 1
 ---
 

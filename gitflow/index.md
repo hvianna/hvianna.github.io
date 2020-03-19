@@ -1,6 +1,6 @@
 ---
 layout: default
-title: gitflow
+title: gitflow (pt-BR)
 nav_order: 2
 ---
 
