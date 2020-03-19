@@ -4,7 +4,7 @@ title: gitflow (pt-BR)
 nav_order: 5
 ---
 
-# Um modelo bem-sucedido de branches para Git ("gitflow")
+# gitflow - Um modelo bem-sucedido de branches para Git
 
 Resumo traduzido por [Henrique Vianna](https://github.com/hvianna/) do [post original de Vincent Driessen](https://nvie.com/posts/a-successful-git-branching-model/)
 
