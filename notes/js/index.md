@@ -14,6 +14,7 @@ parent: Notes and bookmarks
 + :mega: [What's new in ES2020](https://alligator.io/js/es2020/)
 + :mega: [ES2015+ cheatsheet](https://devhints.io/es6) / [ES2015 features](https://babeljs.io/docs/en/learn/)
 + :mega: [JavaScript tips and tidbits](https://github.com/nas5w/javascript-tips-and-tidbits)
++ :mega: [How to manage HTML DOM with vanilla JavaScript only?](https://htmldom.dev/)
 + :hammer_and_wrench: [EcmaScript compatibility table](http://kangax.github.io/compat-table/es6/)
 + :hammer_and_wrench: [JSHint - JavaScript Code Analysis Tool](https://jshint.com/)
 + :open_book: [JavaScript module systems showdown](https://auth0.com/blog/javascript-module-systems-showdown/)
