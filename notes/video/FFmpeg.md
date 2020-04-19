@@ -18,12 +18,12 @@ nav_order: 1
 | `-preset` | `faster`, `fast`, `medium`, `slow`, `slower` ( > velocidade > tamanho de arquivo ) |
 | `-crf` | `0` = lossless; `51` = pior qualidade - default: `28` para x265; `23` para x264 |
 
-Transcode de vídeo entrelaçado para x.264 progressivo e áudio PCM 24 bits:
+### Transcode de vídeo entrelaçado para x.264 progressivo e áudio PCM 24 bits
 ```
 ffmpeg -i "concat:e:00004.m2ts|e:00005.m2ts|e:00003.m2ts" -vf yadif -c:v libx264 -preset slow -crf 23 -c:a pcm_s24le w:output.mkv
 ```
 
-Transcode vídeo entrelaçado para x.264 progressivo com múltiplas streams de áudio reordenadas:
+### Transcode vídeo entrelaçado para x.264 progressivo com múltiplas streams de áudio reordenadas
 ```
 ffmpeg -i "concat:e:VTS_01_1.VOB|e:VTS_01_2.VOB|e:VTS_01_3.VOB" -map 0:1 -map 0:3 -map 0:2 -vf yadif -c:v libx264 -preset slow -crf 23 -c:a:0 copy -c:a:1 pcm_s16le x:output.mkv
 ```
@@ -34,14 +34,24 @@ ffmpeg -i "concat:e:VTS_01_1.VOB|e:VTS_01_2.VOB|e:VTS_01_3.VOB" -map 0:1 -map 0:
 > + Stream #0:3 -> #0:1 (copy)
 > + Stream #0:2 -> #0:2 (pcm_dvd (native) -> pcm_s16le (native))
 
+Ver também [Listar streams de um arquivo](#listar-streams-de-um-arquivo)
+
+### Copiando capítulos
+
+`-map_chapters` *`input_file_index`*
+
+```
+ffmpeg -i input.mkv -map_chapters 0 -c copy -map 0:0 -map 0:2 -map 0:1 -c:v libx264 -preset slow -crf 23 -c:a:0 copy -c:a:1 copy output.mkv
+```
 
 ---
 
-Documentação FFmpeg:
+Documentação relacionada:
 + [Codificação H.265](https://trac.ffmpeg.org/wiki/Encode/H.265)
 + [Codificação H.264](https://trac.ffmpeg.org/wiki/Encode/H.264)
 + [Filtros](https://ffmpeg.org/ffmpeg-filters.html)
 + [Map](https://trac.ffmpeg.org/wiki/Map)
++ [Advanced options](http://ffmpeg.org/ffmpeg.html#Advanced-options)
 
 ## Seeking / splitting
 
@@ -57,12 +67,12 @@ Quando o parâmetro `-ss` é informado **antes** da entrada, o ffmpeg se baseia 
 
 ---
 
-Copiar três minutos a partir do início do arquivo:
+### Copiar três minutos a partir do início do arquivo
 ```
 ffmpeg -ss 00:00:00 -t 00:03:00 -i input.mp4 -vcodec copy -acodec copy intro.mp4
 ```
 
-Extrair um trecho no intervalo especificado:
+### Extrair um trecho no intervalo especificado
 ```
 ffmpeg -ss 0:51:22 -i input.m2ts -ss 0:51:22.712 -to 0:55:18.281 -c:v copy -c:a pcm_s24le ch12.mkv
 ```
@@ -95,7 +105,7 @@ ffmpeg -i 0001.m2ts -i 0002.m2ts -filter_complex "[0:v:0][0:a:0][1:v:0][1:a:0]co
 
 ## Mux / demux / subs
 
-**Listar streams de um arquivo:**
+### Listar streams de um arquivo
 
 ```
 ffprobe input.m2ts
@@ -107,7 +117,7 @@ ffprobe input.m2ts
 > Stream #0:4[0x1101]: Audio: eac3 (AC-3 / 0x332D4341), 48000 Hz, 7.1, fltp, 1664 kb/s<br>
 > Stream #0:5[0x1102]: Audio: ac3 (AC-3 / 0x332D4341), 48000 Hz, 5.1(side), fltp, 640 kb/s
 
-**Extrair streams selecionadas sem recodificar:**
+### Extrair streams selecionadas sem recodificar
 
 ```
 ffmpeg -i input.m2ts -map 0:0 -map 0:2 -c:v:0 copy -c:a:0 copy output.m2ts
@@ -119,19 +129,21 @@ ffmpeg -i input.m2ts -map 0:0 -map 0:2 -c:v:0 copy -c:a:0 copy output.m2ts
 > + Stream #0:0 -> #0:0 (copy)
 > + Stream #0:2 -> #0:1 (copy)
 
-**Multiplexar streams elementares:**
+> **The order of `-map` options, specified on cmd line, will create the same order of streams in the output file.**
+
+### Multiplexar streams elementares
 
 *atenção para a extensão das streams - não reconhece .m4v*
 ```
 ffmpeg -i input.h264 -i input.aac -vcodec copy -acodec copy output.mp4
 ```
 
-**Adicionar legendas a um vídeo:**
+### Adicionar legendas a um vídeo
 ```
 ffmpeg -i input.mp4 -i subs.srt -c copy -c:s mov_text output.mp4
 ```
 
-**Demultiplexar apenas uma stream específica:**
+### Demultiplexar apenas uma stream específica
 ```
 ffmpeg -i input.mp4 -an -sn -vcodec copy output.h264
 ffmpeg -i input.mp4 -vn -sn -acodec copy output.aac
@@ -153,28 +165,28 @@ ffmpeg -i %1 -c:v copy -map 0:0 "%~n1.h264" -c:a copy -map 0:1 "%~n1.aac" -c:s s
 
 ## Converter para GIF animada
 
-**Gerar palette:**
+### Gerar palette
 
 ```
 ffmpeg -y -i input.mp4 -filter:v "crop=560:264:0:120" -vf fps=15,palettegen palette.png
 ```
 
-**Converter:**
+### Converter
 
-+ com crop:
+#### com crop:
 
 ```
 ffmpeg -y -i input.mp4 -i palette.png -filter_complex "crop=560:264:0:120,fps=15,paletteuse" output.gif
 ```
 
-+ com resize:
+#### com resize:
 
 ```
 ffmpeg -ss 30 -t 3 -i input.mp4 -i palette.png -filter_complex
 "fps=10,scale=320:-1:flags=lanczos[x];[x][1:v]paletteuse" output.gif
 ```
 
-Referências:
+#### Referências:
 
 + [https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality](https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality)
 + [http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html](http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html)
@@ -182,12 +194,12 @@ Referências:
 
 ## Áudio
 
-Converter áudio para FLAC:
+### Converter áudio para FLAC
 ```
 ffmpeg -i vts_01_1.vob -c flac -compression_level 8 ouput.flac
 ```
 
-Converter áudio de blu-ray para PCM 24 bits:
+### Converter áudio de blu-ray para PCM 24 bits
 ```
 ffmpeg -i 00002.m2ts -c:v copy -c:a pcm_s24le -ss 0:51:22.712 -to 0:55:18.281 "LOVE ME DO.mkv"
 ```
