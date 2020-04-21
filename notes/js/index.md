@@ -12,6 +12,7 @@ parent: Notes and bookmarks
 + :open_book: [JavaScript for impatient programmers (ebook)](https://exploringjs.com/impatient-js/index.html)
 + :open_book: [Understanding the ECMAScript spec](https://v8.dev/blog/understanding-ecmascript-part-1)
 + :mega: [What's new in ES2020](https://alligator.io/js/es2020/)
++ :mega: [ES7 and ES8 features](https://node.university/blog/7297/es7-es8-post)
 + :mega: [ES2015+ cheatsheet](https://devhints.io/es6) / [ES2015 features](https://babeljs.io/docs/en/learn/)
 + :mega: [JavaScript tips and tidbits](https://github.com/nas5w/javascript-tips-and-tidbits)
 + :mega: [How to manage HTML DOM with vanilla JavaScript only?](https://htmldom.dev/)
