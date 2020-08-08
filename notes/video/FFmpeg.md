@@ -203,3 +203,15 @@ ffmpeg -i vts_01_1.vob -c flac -compression_level 8 ouput.flac
 ```
 ffmpeg -i 00002.m2ts -c:v copy -c:a pcm_s24le -ss 0:51:22.712 -to 0:55:18.281 "LOVE ME DO.mkv"
 ```
+
+### Resampling de áudio
+```
+ffmpeg -i input.mp4 -vcodec copy -acodec aac -b:a 320k -ar 44100 output.mp4
+```
+
++ `-ar` = sampling rate (Hz)
++ `-b:a` = bitrate (bps)
+
+#### Referências
+
++ [https://trac.ffmpeg.org/wiki/Encode/AAC](https://trac.ffmpeg.org/wiki/Encode/AAC)
