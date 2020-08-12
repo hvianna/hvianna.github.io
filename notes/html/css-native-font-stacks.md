@@ -8,7 +8,7 @@ nav_order: 1
 
 ```
 /* System */
-font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
 /* Serif */
 font-family: Cambria, Palatino Linotype, Palatino, Liberation Serif, serif;
@@ -20,6 +20,7 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 ---
 
 References:
++ https://medium.com/@masakudamatsu/survey-system-font-stack-5f73a3b39776
 + https://css-tricks.com/snippets/css/system-font-stack/
 + https://css-tricks.com/snippets/css/font-stacks/
 + https://css-tricks.com/css-basics-fallback-font-stacks-robust-web-typography/
