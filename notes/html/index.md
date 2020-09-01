@@ -17,3 +17,4 @@ parent: Notes and bookmarks
 + :open_book: [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
 + :open_book: [Understanding CSS Grid](https://www.smashingmagazine.com/2020/01/understanding-css-grid-container/)
 + :hammer_and_wrench: [CSS Grid Generator](https://cssgrid-generator.netlify.com/) (article on [How to Stack Elements in CSS](https://css-tricks.com/how-to-stack-elements-in-css/))
++ :mega: [Ten modern layouts in one line of CSS](https://web.dev/one-line-layouts/)
