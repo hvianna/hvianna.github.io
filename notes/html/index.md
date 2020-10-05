@@ -6,15 +6,23 @@ has_children: true
 parent: Notes and bookmarks
 ---
 
-## HTML
-+ :notebook_with_decorative_cover: [HTML Standard](https://html.spec.whatwg.org/multipage/)
-+ [Web Almanac](https://almanac.httparchive.org/)
+# HTML / CSS
 
-## CSS
+## Standards
++ :notebook_with_decorative_cover: [HTML Standard](https://html.spec.whatwg.org/multipage/)
 + :notebook_with_decorative_cover: [CSS Standard & Drafts](https://www.w3.org/Style/CSS/)
-+ :bulb: [A simple website](https://blog.koley.in/baserock/) - [CSS code](https://gist.github.com/hvianna/eaa782ca66c768c3fc90bb21d33c75cc) - [Demo site with font selector](https://hvianna.github.io/simple/)
-+ :bulb: [Brutalist web design](https://brutalist-web.design/)
+
+## Tutorials
 + :open_book: [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
 + :open_book: [Understanding CSS Grid](https://www.smashingmagazine.com/2020/01/understanding-css-grid-container/)
-+ :hammer_and_wrench: [CSS Grid Generator](https://cssgrid-generator.netlify.com/) (article on [How to Stack Elements in CSS](https://css-tricks.com/how-to-stack-elements-in-css/))
++ :open_book: [Learn CSS Grid](https://learncssgrid.com/)
+
+## Implementation ideas
++ :bulb: [A simple website](https://hvianna.github.io/simple/) - [CSS code](https://gist.github.com/hvianna/eaa782ca66c768c3fc90bb21d33c75cc)
++ :bulb: [Brutalist web design](https://brutalist-web.design/)
++ :mega: [Full-Bleed Layout Using CSS Grid](https://joshwcomeau.com/css/full-bleed/)
 + :mega: [Ten modern layouts in one line of CSS](https://web.dev/one-line-layouts/)
+
+## Tools
++ :hammer_and_wrench: [CSS Grid Generator](https://cssgrid-generator.netlify.com/)
++ :hammer_and_wrench: [Web Almanac](https://almanac.httparchive.org/)
