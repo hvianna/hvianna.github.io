@@ -20,23 +20,25 @@ a {
 /*	color: var(--accent-color-1); */
 }
 
-.page-content ul li img {
+.main-content ul li img {
 	margin-left: -10px;
 	vertical-align: middle
 }
 
 /* emoji in unordered lists */
-.page-content ul li img.emoji {
+.main-content ul li img.emoji {
 	background: var(--background-color);
 	margin-left: -25px;
 	position: absolute;
 }
 
-.page-content a {
+.main-content a {
 	white-space: normal;
 }
 
-.page-content h2,
-.page-content h3 {
+/*
+.main-content h2,
+.main-content h3 {
 	color: var(--accent-color-2);
 }
+*/

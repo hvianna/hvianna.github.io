@@ -16,6 +16,10 @@ permalink: /
 
 [![](https://audiomotion.me/docs/img/audioMotion-header.png)](https://audiomotion.me)
 
+### audioMotion-analyzer
+
+[![](https://audiomotion.dev/cover.png)](https://audiomotion.dev)
+
 ### desktopCal.js
 
 [![](https://raw.githubusercontent.com/hvianna/desktopCal.js/master/img/sharing.png)](https://github.com/hvianna/desktopCal.js)

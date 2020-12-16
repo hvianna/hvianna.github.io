@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Node.js basics
+title: node / npm basics
 parent: JavaScript
 grand_parent: Notes and bookmarks
 nav_order: 2
 ---
 
-# Node.js basics
+# node / npm basics
 
 + [npm docs home](https://docs.npmjs.com/) / [npm install](https://docs.npmjs.com/cli/install)
 
@@ -33,6 +33,12 @@ nav_order: 2
 ### Force update of major version
 
 `npm install <package>@latest`
+
+### Publishing a beta version of a package to npm
+
+`npm publish --tag beta`
+
+Reference: https://medium.com/@kevinkreuzer/publishing-a-beta-or-alpha-version-to-npm-46035b630dd7
 
 
 ### Bundling node modules for usage in a browser
