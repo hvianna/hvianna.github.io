@@ -54,13 +54,14 @@ A string de formatação deve especificar a largura correta quando os números f
 Ver [documentação relacionada](http://www.ffmpeg.org/faq.html#toc-How-do-I-encode-single-pictures-into-movies_003f).
 
 
-### Copiando capítulos
-
-`-map_chapters` *`input_file_index`*
-
+### Copiando capítulos de um arquivo de entrada
 ```
-ffmpeg -i input.mkv -map_chapters 0 -c copy -map 0:0 -map 0:2 -map 0:1 -c:v libx264 -preset slow -crf 23 -c:a:0 copy -c:a:1 copy output.mkv
+ffmpeg -i input.mkv -map_chapters 0 -c copy -c:v libx264 -preset slow -crf 23 -c:a copy output.mkv
 ```
+
+parâmetro | descrição
+--|--
+`-map_chapters` | índice do arquivo de entrada (se houver apenas um arquivo de entrada, o índice pode ser omitido)
 
 ---
 
@@ -128,9 +129,9 @@ ffmpeg -i 0001.m2ts -i 0002.m2ts -filter_complex "[0:v:0][0:a:0][1:v:0][1:a:0]co
 ```
 ffprobe input.m2ts
 ```
-> **Stream #0:0[0x1011]: Video: hevc (Main 10) (HDMV / 0x564D4448), yuv420p10le, 3840x2160 [SAR 1:1 DAR 16:9], 23.98 fps**<br>
+> Stream #0:0[0x1011]: Video: hevc (Main 10) (HDMV / 0x564D4448), yuv420p10le, 3840x2160 [SAR 1:1 DAR 16:9], 23.98 fps<br>
 > Stream #0:1[0x1015]: Video: hevc (Main 10) (HDMV / 0x564D4448), yuv420p10le, 1920x1080 [SAR 1:1 DAR 16:9], 23.98 fps<br>
-> **Stream #0:2[0x1100]: Audio: truehd (AC-3 / 0x332D4341), 48000 Hz, 7.1, s32 (24 bit)**<br>
+> Stream #0:2[0x1100]: Audio: truehd (AC-3 / 0x332D4341), 48000 Hz, 7.1, s32 (24 bit)<br>
 > Stream #0:3[0x1100]: Audio: ac3 (AC-3 / 0x332D4341), 48000 Hz, 5.1(side), fltp, 640 kb/s<br>
 > Stream #0:4[0x1101]: Audio: eac3 (AC-3 / 0x332D4341), 48000 Hz, 7.1, fltp, 1664 kb/s<br>
 > Stream #0:5[0x1102]: Audio: ac3 (AC-3 / 0x332D4341), 48000 Hz, 5.1(side), fltp, 640 kb/s
@@ -144,7 +145,7 @@ ffmpeg -i input.m2ts -map 0:0 -map 0:2 -c:v:0 copy -c:a:0 copy output.m2ts
 > + Stream #0:0 -> #0:0 (copy)
 > + Stream #0:2 -> #0:1 (copy)
 
-> **The order of `-map` options, specified on cmd line, will create the same order of streams in the output file.**
+> **A ordem das opções `-map` define a ordem das streams no arquivo de saída:**
 
 ```
 ffprobe output.m2ts
@@ -167,16 +168,21 @@ Verificar o número de cada stream de entrada com:
 ffmpeg -i nee.mp4 -i nee.vob
 ```
 > Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'nee.mp4':
-> + **Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 3840x2160, 190795 kb/s, 59.94 fps, 59.94 tbr, 60k tbn, 119.88 tbc (default)**
+> + **Stream #0:0**(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 3840x2160, 190795 kb/s, 59.94 fps, 59.94 tbr, 60k tbn, 119.88 tbc (default)
 > + Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 93 kb/s (default)<br>
 > Input #1, mpeg, from 'nee.vob':
 > + Stream #1:0[0x1bf]: Data: dvd_nav_packet
 > + Stream #1:1[0x1e0]: Video: mpeg2video (Main), yuv420p(tv, top first), 720x480 [SAR 8:9 DAR 4:3], 29.97 fps, 29.97 tbr, 90k tbn, 59.94 tbc
-> + **Stream #1:2[0xa0]: Audio: pcm_dvd, 48000 Hz, stereo, s16, 1536 kb/s**
+> + **Stream #1:2**[0xa0]: Audio: pcm_dvd, 48000 Hz, stereo, s16, 1536 kb/s
 
 ```
-ffmpeg -i nee.mp4 -i nee.vob -map 0:0 -map 1:2 -c:v copy -c:a pcm_s16le nee.mkv
+ffmpeg -i nee.mp4 -itsoffset -0.9 -i nee.vob -map 0:0 -map 1:2 -c:v copy -c:a pcm_s16le nee.mkv
 ```
+
+| parâmetro | descrição |
+|--|--|
+| `-itsoffset` | ajusta o delay - usar **antes** do arquivo de entrada com a stream a ajustar ([time duration syntax](https://ffmpeg.org/ffmpeg-utils.html#time-duration-syntax)) |
+
 
 ### Adicionar legendas a um vídeo
 ```
