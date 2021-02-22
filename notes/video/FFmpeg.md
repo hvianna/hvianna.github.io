@@ -179,10 +179,12 @@ ffmpeg -i nee.mp4 -i nee.vob
 ffmpeg -i nee.mp4 -itsoffset -0.9 -i nee.vob -map 0:0 -map 1:2 -c:v copy -c:a pcm_s16le nee.mkv
 ```
 
-| parâmetro | descrição |
-|--|--|
-| `-itsoffset` | ajusta o delay - usar **antes** do arquivo de entrada com a stream a ajustar ([time duration syntax](https://ffmpeg.org/ffmpeg-utils.html#time-duration-syntax)) |
+Parâmetros opcionais:
 
+parâmetro | descrição
+--|--
+`-itsoffset` | ajusta o delay - usar **antes** da entrada com a stream a ajustar (ver [time duration syntax](https://ffmpeg.org/ffmpeg-utils.html#time-duration-syntax))
+`-fflags +discardcorrupt` | ignora pacotes corruptos (especificar **antes** da entrada causando o erro)
 
 ### Adicionar legendas a um vídeo
 ```
