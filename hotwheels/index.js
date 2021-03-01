@@ -54,9 +54,10 @@ function doSearch( event ) {
 
 			//populate the gallery
 			data.forEach( item => {
+				const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : item.image_url;
 				container.innerHTML += `
 					<div class="item" data-year="${ item.year }" data-series="${ item.series }">
-						<img src="${ item.image_url }" loading="lazy">
+						<img src="${ photo }" loading="lazy">
 						<div class="title">${ item.model }</div>
 						<div class="info">${ item.year } ${ item.series }</div>
 					</div>
