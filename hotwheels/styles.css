@@ -61,6 +61,47 @@ header h1 {
 	font-size: .8rem;
 }
 
+.menu,
+.submenu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.menu li {
+	cursor: pointer;
+}
+.menu > li {
+	display: inline-block;
+	margin-right: 10px;
+	padding: 6px 12px;
+	position: relative;
+}
+.menu > li:hover {
+	background: #444;
+	color: #f0f0f0;
+}
+.menu > li:hover > .submenu {
+    display: block;
+}
+
+.submenu {
+	background: #444;
+	display: none;
+	left: 0;
+	min-width: 200px;
+	padding: 10px 0;
+	position: absolute;
+}
+.submenu li {
+	color: #f0f0f0;
+	line-height: 2;
+	padding: 0 12px;
+}
+.submenu li:hover {
+	background: #000;
+	color: #fff;
+}
+
 .search {
 	position: relative;
 }

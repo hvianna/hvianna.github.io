@@ -12,8 +12,20 @@
 				<input id="search" type="text" placeholder="Search...">
 				<div id="clear" class="search-clear"></div>
 			</div>
-			<h1>My Hot Wheels Collection <span id="count"></span></h1>
+			<nav>
+				<ul id="menu" class="menu">
+					<li>By Year
+						<ul id="year_menu" class="submenu"></ul>
+					</li>
+					<li>By Series
+						<ul id="series_menu" class="submenu"></ul>
+					</li>
+				</ul>
+			</nav>
+			<h1>My Hot Wheels Collection</h1>
 		</header>
+		<p id="loading">Loading...</p>
+		<p class="hide"><span id="count"></span> entries found</p>
 		<div id="container" class="container"></div>
 		<div class="credits">
 			Powered by: <a href="https://docs.google.com" target="_blank">Google Sheets</a> &middot;

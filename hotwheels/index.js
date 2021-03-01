@@ -12,24 +12,36 @@ const sheetURL  = 'https://docs.google.com/spreadsheets/d/161po8KEyBB9FxmOOfat4d
 const $  = document.querySelector.bind( document );
 const $$ = document.querySelectorAll.bind( document );
 
+// globals
 const searchBox = $('#search');
+let series = [];
+let years = [];
 
+/**
+ * Search function
+ * if the search string follows the format 'field:value' it will search only on the specific field
+ */
 function doSearch( event ) {
-	if ( event.code == 'Esc' )
-		searchBox.value = '';
+	if ( typeof event == 'object' ) {
+		if ( event.code == 'Esc' )
+			searchBox.value = '';
+	}
+	else
+		searchBox.value = event || '';
 
-	const searchStr = searchBox.value.toLowerCase();
-	const items = $$('.item');
+	let [ field, value ] = searchBox.value.toLowerCase().split(':');
+	if ( value == undefined )
+		[ value, field ] = [ field, value ];
 
-	items.forEach( item => {
-		const text = item.innerText.toLowerCase();
-		item.classList.toggle( 'hide', searchStr.length > 1 && ! text.includes( searchStr ) );
+	$$('.item').forEach( item => {
+		const text = ( field ? item.dataset[ field ] : item.innerText ).toLowerCase();
+		item.classList.toggle( 'hide', value.length > 1 && ! text.includes( value ) );
 	});
+
+	$('#count').innerText = $$('.item:not(.hide)').length;
 }
 
-/*
-	initialization - populate the gallery and set event listeners for the search box
-*/
+// Initialization
 
 (function () {
 	Papa.parse( sheetURL, {
@@ -39,20 +51,43 @@ function doSearch( event ) {
 			const data = result.data;
 			const container = $('#container');
 
+			//populate the gallery
 			data.forEach( item => {
 				container.innerHTML += `
-					<div class="item">
+					<div class="item" data-year="${ item.year }" data-series="${ item.series }">
 						<img src="${ item.image_url }" loading="lazy">
 						<div class="title">${ item.model }</div>
 						<div class="info">${ item.year } ${ item.series }</div>
 					</div>
 				`;
+
+				if ( ! series.includes( item.series ) )
+					series.push( item.series );
+				if ( ! years.includes( item.year ) )
+					years.push( item.year );
 			});
 
-			$('#count').innerText = `(${ data.length })`;
+			$('#loading').classList.add('hide');
+
+			// update and show items count
+			const count = $('#count');
+			count.innerText = data.length;
+			count.parentNode.classList.remove('hide');
+
+			// update submenus
+			const yearMenu = $('#year_menu');
+			years.sort().forEach( item => yearMenu.innerHTML += `<li>${item}</li>` );
+			for ( const el of yearMenu.children )
+				el.addEventListener( 'click', () => doSearch( `year:${ el.innerText }` ) );
+
+			const seriesMenu = $('#series_menu');
+			series.sort().forEach( item => seriesMenu.innerHTML += `<li>${item}</li>` );
+			for ( const el of seriesMenu.children )
+				el.addEventListener( 'click', () => doSearch( `series:${ el.innerText }` ) );
 		}
 	});
 
+	// set event listeners for the search box
 	searchBox.addEventListener( 'keyup', doSearch );
-	$('#clear').addEventListener( 'click', () => doSearch( {code: 'Esc'} ) );
+	$('#clear').addEventListener( 'click', () => doSearch() );
 })();
