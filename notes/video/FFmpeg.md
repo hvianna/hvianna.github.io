@@ -185,6 +185,7 @@ parâmetro | descrição
 --|--
 `-itsoffset` | ajusta o delay - usar **antes** da entrada com a stream a ajustar (ver [time duration syntax](https://ffmpeg.org/ffmpeg-utils.html#time-duration-syntax))
 `-fflags +discardcorrupt` | ignora pacotes corruptos (especificar **antes** da entrada causando o erro)
+`-shortest` | finaliza a codificação ao término da stream mais curta
 
 ### Adicionar legendas a um vídeo
 ```
