@@ -14,6 +14,7 @@ const $$ = document.querySelectorAll.bind( document );
 
 // globals
 const searchBox = $('#search');
+const modal = $('#modal');
 let series = [];
 let years = [];
 
@@ -84,10 +85,19 @@ function doSearch( event ) {
 			series.sort().forEach( item => seriesMenu.innerHTML += `<li>${item}</li>` );
 			for ( const el of seriesMenu.children )
 				el.addEventListener( 'click', () => doSearch( `series:${ el.innerText }` ) );
+
+			// set event listeners to zoom image on click
+			$$('.item').forEach( el => el.addEventListener( 'click', () => {
+				$('#zoom').src = el.querySelector('img').src;
+				modal.classList.remove('hide');
+			}) );
 		}
 	});
 
 	// set event listeners for the search box
 	searchBox.addEventListener( 'keyup', doSearch );
 	$('#clear').addEventListener( 'click', () => doSearch() );
+
+	// hide modal window when clicked
+	modal.addEventListener( 'click', () => modal.classList.add('hide') );
 })();
