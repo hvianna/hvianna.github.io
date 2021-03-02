@@ -15,11 +15,11 @@ body {
 	width: 1600px;
 }
 img {
+	display: block;
 	width: 100%;
 }
 a {
 	color: #04b71b;
-	text-decoration: none;
 }
 h1, h2, strong {
 	color: #111;
@@ -55,7 +55,8 @@ nav {
 }
 
 .credits {
-	margin-top: 20px;
+	font-size: .8rem;
+	margin-top: 40px;
 }
 
 .error {
@@ -70,9 +71,16 @@ nav {
 .info {
 	font-size: .8rem;
 }
+.info,
+.title {
+	padding: 0 4px;
+}
 
 .item {
 	cursor: pointer;
+}
+.item:hover {
+	outline: 4px solid orange;
 }
 
 .menu,
@@ -114,16 +122,43 @@ nav {
 	width: auto;
 }
 
-.number {
-	bottom: 10px;
+.number,
+.part {
 	color: #fff;
-	font-size: 150%;
+	font-size: 1.1rem;
+	padding: .1em;
 	position: absolute;
-	right: 10px;
-	text-shadow: 1px 1px 3px #0008;
+	text-align: center;
+	transition: all .25s;
+}
+
+.number {
+	background: #0002;
+	border-top-right-radius: .5em;
+	border-bottom-right-radius: .5em;
+	left: 0;
+	top: 0;
+	width: 2.5em;
+}
+.item:hover .number {
+	background: orange;
+}
+
+.part {
+	background: orange;
+	border-top-left-radius: .5em;
+	border-bottom-left-radius: .5em;
+	bottom: 0;
+	right: -100px;
+	width: 4em;
+}
+.item:hover .part {
+	right: 0;
 }
 
 .photo {
+	margin-bottom: 5px;
+	overflow: hidden;
 	position: relative;
 }
 

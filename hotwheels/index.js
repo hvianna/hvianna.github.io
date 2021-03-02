@@ -60,10 +60,11 @@ function doSearch( event ) {
 			const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : 'nopic.webp';
 
 			container.innerHTML += `
-				<div class="item" data-year="${ item.year }" data-series="${ item.series }">
+				<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }">
 					<div class="photo">
 						<img src="${ photo }" loading="lazy">
 						<div class="number">${ item.year_no }</div>
+						<div class="part">${ item.part_no }</div>
 					</div>
 					<div class="title">${ item.model }</div>
 					<div class="info">${ item.year } ${ item.series } (${ item.series_no })</div>
