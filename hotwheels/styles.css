@@ -103,6 +103,19 @@ header h1 {
 	width: auto;
 }
 
+.number {
+	bottom: 10px;
+	font-size: 120%;
+	font-weight: bold;
+	opacity: .8;
+	position: absolute;
+	right: 10px;
+}
+
+.photo {
+	position: relative;
+}
+
 .submenu {
 	background: #444;
 	display: none;

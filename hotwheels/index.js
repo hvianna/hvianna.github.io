@@ -57,12 +57,16 @@ function doSearch( event ) {
 				const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : item.image_url;
 				container.innerHTML += `
 					<div class="item" data-year="${ item.year }" data-series="${ item.series }">
-						<img src="${ photo }" loading="lazy">
+						<div class="photo">
+							<img src="${ photo }" loading="lazy">
+							<div class="number">${ item.year_no }</div>
+						</div>
 						<div class="title">${ item.model }</div>
-						<div class="info">${ item.year } ${ item.series }</div>
+						<div class="info">${ item.year } ${ item.series } (${ item.series_no })</div>
 					</div>
 				`;
 
+				// save different series and years
 				if ( ! series.includes( item.series ) )
 					series.push( item.series );
 				if ( ! years.includes( item.year ) )
