@@ -58,6 +58,11 @@ nav {
 	margin-top: 20px;
 }
 
+.error {
+	color: #d00;
+	font-weight: bold;
+}
+
 .hide {
 	display: none;
 }

@@ -1,26 +1,31 @@
 /**
- * A simple searchable gallery/database using Google Sheets + Papa Parse
+ * A searchable gallery using Google Sheets as a simple database
  *
  * by Henrique Vianna - https://henriquevianna.com
  */
 
 import * as Papa from 'https://cdn.skypack.dev/papaparse';
 
-const sheetURL  = 'https://docs.google.com/spreadsheets/d/161po8KEyBB9FxmOOfat4dfKGt3uO8wL6uZ9i4v2QXnU/pub?gid=0&single=true&output=csv';
+const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQA88VnFS7YDPOU9k8zT5Iax3Ju-6J3z4vkJhy9vdyw0Z1kK6j45I-r1THtmfy7_--LF3h4oYSrqk-l/pub?gid=0&single=true&output=csv';
 
 // selector shorthand functions
 const $  = document.querySelector.bind( document );
 const $$ = document.querySelectorAll.bind( document );
 
 // globals
+const container = $('#container');
 const searchBox = $('#search');
-const modal = $('#modal');
+const modal     = $('#modal');
+const count     = $('#count');
+const loading   = $('#loading');
+
 let series = [];
-let years = [];
+let years  = [];
+let total  = 0;
 
 /**
  * Search function
- * if the search string follows the format 'field:value' it will search only on the specific field
+ * to search only on a specific field use the format "field:value" (without quotes) in the search string
  */
 function doSearch( event ) {
 	if ( typeof event == 'object' ) {
@@ -31,15 +36,16 @@ function doSearch( event ) {
 		searchBox.value = event || '';
 
 	let [ field, value ] = searchBox.value.toLowerCase().split(':');
-	if ( value == undefined )
+	if ( value === undefined )
 		[ value, field ] = [ field, value ];
 
+	// iterate over gallery items and hide those that don't match the search string
 	$$('.item').forEach( item => {
 		const text = ( field ? item.dataset[ field ] : item.innerText ).toLowerCase();
 		item.classList.toggle( 'hide', value.length > 1 && ! text.includes( value ) );
 	});
 
-	$('#count').innerText = $$('.item:not(.hide)').length;
+	count.innerText = $$('.item:not(.hide)').length;
 }
 
 // Initialization
@@ -48,36 +54,33 @@ function doSearch( event ) {
 	Papa.parse( sheetURL, {
 		download: true,
 		header: true,
-		complete: result => {
-			const data = result.data;
-			const container = $('#container');
+		step: result => {
+			// add new item to the gallery
+			const item = result.data;
+			const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : item.image_url;
 
-			//populate the gallery
-			data.forEach( item => {
-				const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : item.image_url;
-				container.innerHTML += `
-					<div class="item" data-year="${ item.year }" data-series="${ item.series }">
-						<div class="photo">
-							<img src="${ photo }" loading="lazy">
-							<div class="number">${ item.year_no }</div>
-						</div>
-						<div class="title">${ item.model }</div>
-						<div class="info">${ item.year } ${ item.series } (${ item.series_no })</div>
+			container.innerHTML += `
+				<div class="item" data-year="${ item.year }" data-series="${ item.series }">
+					<div class="photo">
+						<img src="${ photo }" loading="lazy">
+						<div class="number">${ item.year_no }</div>
 					</div>
-				`;
+					<div class="title">${ item.model }</div>
+					<div class="info">${ item.year } ${ item.series } (${ item.series_no })</div>
+				</div>
+			`;
 
-				// save different series and years
-				if ( ! series.includes( item.series ) )
-					series.push( item.series );
-				if ( ! years.includes( item.year ) )
-					years.push( item.year );
-			});
+			// save different series and years for menu
+			if ( ! series.includes( item.series ) )
+				series.push( item.series );
+			if ( ! years.includes( item.year ) )
+				years.push( item.year );
 
-			$('#loading').classList.add('hide');
-
-			// update and show items count
-			const count = $('#count');
-			count.innerText = data.length;
+			total++;
+		},
+		complete: () => {
+			loading.classList.add('hide');
+			count.innerText = total;
 			count.parentNode.classList.remove('hide');
 
 			// update submenus
@@ -96,6 +99,10 @@ function doSearch( event ) {
 				$('#zoom').src = el.querySelector('img').src;
 				modal.classList.remove('hide');
 			}) );
+		},
+		error: err => {
+			loading.innerText = `Error loading database: ${err}`;
+			loading.classList.add('error');
 		}
 	});
 
