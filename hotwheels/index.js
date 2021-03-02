@@ -29,7 +29,7 @@ let total  = 0;
  */
 function doSearch( event ) {
 	if ( typeof event == 'object' ) {
-		if ( event.code == 'Esc' )
+		if ( event.code == 'Escape' )
 			searchBox.value = '';
 	}
 	else
