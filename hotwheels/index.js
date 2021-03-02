@@ -57,7 +57,7 @@ function doSearch( event ) {
 		step: result => {
 			// add new item to the gallery
 			const item = result.data;
-			const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : item.image_url;
+			const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : 'nopic.webp';
 
 			container.innerHTML += `
 				<div class="item" data-year="${ item.year }" data-series="${ item.series }">
