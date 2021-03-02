@@ -99,7 +99,7 @@ header h1 {
 .modal img {
 	display: block;
 	height: 100%;
-	margin: 0 auto;
+	margin: auto;
 	width: auto;
 }
 
@@ -173,3 +173,10 @@ header h1 {
 	}
 }
 
+@media (orientation: portrait) {
+	.modal img {
+		height: auto;
+		margin-top: 50%; /* why "auto" doesn't work? */
+		width: 100%;
+	}
+}
