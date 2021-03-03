@@ -107,6 +107,13 @@ function doSearch( event ) {
 		}
 	});
 
+	// show/hide submenus on hover or click
+	$$('.menu > li').forEach( el => {
+		el.addEventListener( 'mouseover', () => el.classList.toggle( 'active', true ) );
+		el.addEventListener( 'mouseout', () => el.classList.toggle( 'active', false ) );
+		el.addEventListener( 'click', () => el.classList.toggle( 'active' ) );
+	});
+
 	// set event listeners for the search box
 	searchBox.addEventListener( 'keyup', doSearch );
 	$('#clear').addEventListener( 'click', () => doSearch() );

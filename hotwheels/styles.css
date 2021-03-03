@@ -99,11 +99,11 @@ nav {
 	padding: 10px;
 	position: relative;
 }
-.menu > li:hover {
+.menu > li.active {
 	background: #eee;
 	border-color: orange;
 }
-.menu > li:hover > .submenu {
+.menu > li.active > .submenu {
     display: block;
 }
 
