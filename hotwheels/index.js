@@ -57,12 +57,12 @@ function doSearch( event ) {
 		step: result => {
 			// add new item to the gallery
 			const item = result.data;
-			const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : 'nopic.webp';
+			const photo = item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : '';
 
 			container.innerHTML += `
 				<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }">
 					<div class="photo">
-						<img src="${ photo }" loading="lazy">
+						${ photo ? '<img src="' + photo + '" loading="lazy">' : '' }
 						<div class="number">${ item.year_no }</div>
 						<div class="part">${ item.part_no }</div>
 					</div>
@@ -97,8 +97,11 @@ function doSearch( event ) {
 
 			// set event listeners to zoom image on click
 			$$('.photo').forEach( el => el.addEventListener( 'click', () => {
-				$('#zoom').src = el.querySelector('img').src;
-				modal.classList.remove('hide');
+				const img = el.querySelector('img');
+				if ( img ) {
+					$('#zoom').src = img.src;
+					modal.classList.remove('hide');
+				}
 			}) );
 		},
 		error: err => {
