@@ -96,7 +96,7 @@ function doSearch( event ) {
 				el.addEventListener( 'click', () => doSearch( `series:${ el.innerText }` ) );
 
 			// set event listeners to zoom image on click
-			$$('.item').forEach( el => el.addEventListener( 'click', () => {
+			$$('.photo').forEach( el => el.addEventListener( 'click', () => {
 				$('#zoom').src = el.querySelector('img').src;
 				modal.classList.remove('hide');
 			}) );
