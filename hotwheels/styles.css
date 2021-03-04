@@ -116,7 +116,6 @@ nav {
 	bottom: 0;
 }
 .modal img {
-	display: block;
 	height: 100%;
 	margin: auto;
 	width: auto;
@@ -126,7 +125,7 @@ nav {
 .part {
 	color: #fff;
 	font-size: 1.1rem;
-	padding: .1em;
+	line-height: 1.8;
 	position: absolute;
 	text-align: center;
 	transition: all .25s;
@@ -157,10 +156,10 @@ nav {
 }
 
 .photo {
-	aspect-ratio: 4/3;
 	background: #eee;
 	margin-bottom: 5px;
 	overflow: hidden;
+	padding-top: 75%; /* force 4:3 aspect ratio - kudos https://css-tricks.com/aspect-ratio-boxes */
 	position: relative;
 	width: 100%;
 }
@@ -176,6 +175,7 @@ nav {
 }
 .photo img {
 	position: absolute;
+	top: 0;
 }
 
 .submenu {
@@ -217,7 +217,7 @@ nav {
 	width: 1.5em;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1279px) {
 	.container {
 		grid-template-columns: repeat(4, 1fr);
 	}
@@ -257,7 +257,9 @@ nav {
 @media (orientation: portrait) {
 	.modal img {
 		height: auto;
-		margin-top: 50%; /* why "auto" doesn't work? */
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
 		width: 100%;
 	}
 }
