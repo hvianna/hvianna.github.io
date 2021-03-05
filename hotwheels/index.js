@@ -69,7 +69,7 @@ function doSearch( event ) {
 					<div class="part">${ item.part_no }</div>
 				</div>
 				<div class="title">${ item.model }</div>
-				<div class="info">${ item.year } ${ item.series } (${ item.series_no })</div>
+				<div class="info">${ item.year } ${ item.series } ${ item.series_no ? '(' + item.series_no + ')' : '' }</div>
 			</div>
 		`;
 	}
@@ -106,15 +106,6 @@ function doSearch( event ) {
 			series.sort().forEach( item => seriesMenu.innerHTML += `<li>${item}</li>` );
 			for ( const el of seriesMenu.children )
 				el.addEventListener( 'click', () => doSearch( `series:${ el.innerText }` ) );
-
-			// set event listeners to zoom image on click
-			$$('.photo').forEach( el => el.addEventListener( 'click', () => {
-				const img = el.querySelector('img');
-				if ( img ) {
-					$('#zoom').src = img.src;
-					modal.classList.remove('hide');
-				}
-			}) );
 		},
 		error: err => {
 			loading.innerText = `Error loading database: ${err}`;
@@ -153,6 +144,18 @@ function doSearch( event ) {
 	// set event listeners for the search box
 	searchBox.addEventListener( 'keyup', doSearch );
 	$('#clear').addEventListener( 'click', () => doSearch() );
+
+	// zoom image on click
+	document.addEventListener( 'click', evt => {
+		const el = evt.target.closest('.photo');
+		if ( el ) {
+			const img = el.querySelector('img');
+			if ( img ) {
+				$('#zoom').src = img.src;
+				modal.classList.remove('hide');
+			}
+		}
+	});
 
 	// hide modal window when clicked
 	modal.addEventListener( 'click', () => modal.classList.add('hide') );
