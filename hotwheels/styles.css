@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400');
 
+:root {
+	/* filters to colorize black to a specific color - kudos https://codepen.io/sosuke/pen/Pjoqqp */
+	--colorize-gold: invert(72%) sepia(73%) saturate(1151%) hue-rotate(2deg) brightness(107%) contrast(107%); /* ref #ffd700 */
+	--colorize-gold-invert: invert(28%) sepia(73%) saturate(1151%) hue-rotate(2deg) brightness(107%) contrast(107%);
+	--colorize-uscgold-invert: invert(26%) sepia(87%) saturate(937%) hue-rotate(355deg) brightness(98%) contrast(109%); /* ref #ffcc00 */
+	--colorize-silver: invert(79%) sepia(6%) saturate(116%) hue-rotate(214deg) brightness(86%) contrast(88%); /* ref #aaa9ad */
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -78,9 +86,29 @@ nav {
 
 .item {
 	cursor: pointer;
+	position: relative;
 }
 .item:hover {
 	outline: 4px solid orange;
+}
+.item:not([data-th=''])::before {
+	background-size: 100% !important;
+	background-repeat: no-repeat !important;
+	content: '';
+	filter: var(--colorize-uscgold-invert);
+	height: 100%;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: 40px;
+	z-index: 1;
+}
+.item[data-th='X']::before {
+	background: url(th.png);
+}
+.item[data-th='S']::before {
+	background: url(sth.png);
+	width: 64px;
 }
 
 .menu,

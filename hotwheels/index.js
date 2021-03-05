@@ -62,7 +62,7 @@ function doSearch( event ) {
 	const itemTemplate = ( item ) => {
 		const photo = item.image_url || ( item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : '' );
 		return `
-			<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }">
+			<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }" data-th="${ item.flg_th }">
 				<div class="photo">
 					${ photo ? '<img src="' + photo + '" loading="lazy">' : '' }
 					<div class="number">${ item.year_no }</div>
