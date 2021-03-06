@@ -198,7 +198,7 @@ nav {
 }
 .photo::before {
 	color: #fff;
-	content: 'NO PHOTO';
+	content: 'SEM FOTO';
 	font-weight: bold;
 	left: 50%;
 	position: absolute;

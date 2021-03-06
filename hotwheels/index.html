@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Hot Wheels Collection | Henrique Vianna</title>
+		<title>Coleção Hot Wheels | Henrique Vianna</title>
 		<link href="styles.css" rel="stylesheet">
 	</head>
 	<body>
 		<header>
 			<div class="search">
-				<input id="search" type="text" placeholder="Search...">
+				<input id="search" type="text" placeholder="Buscar...">
 				<div id="clear" class="search-clear"></div>
 			</div>
 			<nav>
 				<ul id="menu" class="menu">
-					<li>by Year
+					<li>Anos
 						<ul id="year_menu" class="submenu"></ul>
 					</li>
-					<li>by Series
-						<ul id="series_menu" class="submenu"></ul>
+					<li>Séries
+						<ul id="series_menu" class="submenu grid-2cols"></ul>
 					</li>
-					<li id="wishlist_toggle">Wishlist</li>
+					<li id="wishlist_toggle"></li>
 				</ul>
 			</nav>
-			<h1>Hot Wheels <span id="title">Collection</span></h1>
+			<h1 id="title" title="Volta à página inicial"></h1>
 		</header>
-		<p id="loading">Loading...</p>
-		<p class="hide"><span id="count"></span> entries found</p>
+		<p id="loading">Carregando...</p>
+		<p class="hide"><span id="count"></span> miniaturas encontradas</p>
 		<div id="collection" class="container"></div>
 		<div id="wishlist" class="container hide"></div>
 		<div class="credits">
