@@ -14,16 +14,8 @@ const $  = document.querySelector.bind( document );
 const $$ = document.querySelectorAll.bind( document );
 
 // globals
-const collection = $('#collection');
-const wishlist   = $('#wishlist');
 const searchBox  = $('#search');
-const modal      = $('#modal');
 const count      = $('#count');
-const loading    = $('#loading');
-
-let series = [];
-let years  = [];
-let total  = 0;
 
 /**
  * Search function
@@ -59,6 +51,16 @@ function doSearch( event ) {
 
 (function () {
 
+	const collection = $('#collection');
+	const wishlist   = $('#wishlist');
+	const modal      = $('#modal');
+	const loading    = $('#loading');
+
+	let series = [];
+	let years  = [];
+	let total  = 0;
+
+	// gallery item template
 	const itemTemplate = ( item ) => {
 		const photo = item.image_url || ( item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : '' );
 		return `
@@ -68,7 +70,7 @@ function doSearch( event ) {
 					<div class="number">${ item.year_no }</div>
 					<div class="part">${ item.part_no }</div>
 				</div>
-				<div class="title">${ item.model }</div>
+				<div class="model">${ item.model }</div>
 				<div class="info">${ item.year } ${ item.series } ${ item.series_no ? '(' + item.series_no + ')' : '' }</div>
 			</div>
 		`;
@@ -121,17 +123,26 @@ function doSearch( event ) {
 			// populate the gallery
 			const data = result.data;
 			data.forEach( item => wishlist.innerHTML += itemTemplate( item ) );
-
-			// show/hide wishlist
-			const toggle = $('#wishlist_toggle');
-			toggle.addEventListener( 'click', () => {
-				const active = toggle.classList.toggle('active');
-				wishlist.classList.toggle( 'hide', ! active );
-				collection.classList.toggle( 'hide', active );
-				count.innerText = ( active ? wishlist : collection ).querySelectorAll('.item:not(.hide)').length;
-				$('#title').innerText = active ? 'Wishlist' : 'Collection';
-			});
 		}
+	});
+
+	// show/hide wishlist
+	const wishlistBtn = $('#wishlist_toggle');
+	const title = $('#title');
+	const toggleWishlist = ( force ) => {
+		const active = wishlistBtn.classList.toggle( 'wishlist', force );
+		wishlist.classList.toggle( 'hide', ! active );
+		collection.classList.toggle( 'hide', active );
+		title.classList.toggle( 'wishlist', active );
+		count.innerText = ( active ? wishlist : collection ).querySelectorAll('.item:not(.hide)').length;
+	}
+
+	wishlistBtn.addEventListener( 'click', () => toggleWishlist() );
+
+	// clicking the title leads back to the main gallery and clear any search
+	title.addEventListener( 'click', () => {
+		toggleWishlist( false );
+		doSearch();
 	});
 
 	// show/hide submenus on hover or click
