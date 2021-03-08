@@ -77,6 +77,51 @@ nav {
 	grid-template-columns: 1fr 1fr;
 }
 
+.flags {
+	padding: 5px;
+	position: absolute;
+	text-align: right;
+	top: 0;
+	width: 100%;
+}
+[class^="flag-"] {
+	display: inline-block;
+	font-style: normal;
+	vertical-align: middle;
+}
+.flag-new::before {
+	color: #0a0;
+	content: '\2691';
+	font-size: 30px;
+	line-height: 0;
+	text-shadow: 1px 1px 3px #0008;
+}
+.flag-th::before,
+.flag-sth::before {
+	background-size: 100% !important;
+	background-repeat: no-repeat !important;
+	content: '';
+	display: inline-block;
+	filter: var(--colorize-uscgold-invert);
+	height: 25px;
+	width: 25px;
+}
+.flag-th::before {
+	background: url(th.png);
+}
+.flag-sth::before {
+	background: url(sth.png);
+	background-position: 0 2px;
+	width: 50px;
+}
+.flag-star::before {
+	color: gold;
+	content: '\2605';
+	font-size: 30px;
+	line-height: 0;
+	text-shadow: 1px 1px 3px #000;
+}
+
 .hide {
 	display: none;
 }
@@ -95,25 +140,6 @@ nav {
 }
 .item:hover {
 	outline: 4px solid orange;
-}
-.item:not([data-th=''])::before {
-	background-size: 100% !important;
-	background-repeat: no-repeat !important;
-	content: '';
-	filter: var(--colorize-uscgold-invert);
-	height: 100%;
-	position: absolute;
-	right: 5px;
-	top: 5px;
-	width: 40px;
-	z-index: 1;
-}
-.item[data-th='X']::before {
-	background: url(th.png);
-}
-.item[data-th='S']::before {
-	background: url(sth.png);
-	width: 64px;
 }
 
 .menu,
@@ -276,7 +302,7 @@ nav {
 	content: 'Desejos';
 }
 #wishlist_toggle.wishlist::before {
-	content: 'Galeria';
+	content: 'Coleção';
 }
 
 @media screen and (max-width: 1279px) {

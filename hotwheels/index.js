@@ -64,11 +64,17 @@ function doSearch( event ) {
 	const itemTemplate = ( item ) => {
 		const photo = item.image_url || ( item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : '' );
 		return `
-			<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }" data-th="${ item.flg_th }">
+			<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }" data-th="${ item.flg_th }" data-star="${ item.flg_star }" data-new="${ item.flg_new }">
 				<div class="photo">
 					${ photo ? '<img src="' + photo + '" loading="lazy">' : '' }
 					<div class="number">${ item.year_no }</div>
 					<div class="part">${ item.part_no }</div>
+					<div class="flags">
+						${ item.flg_new ? '<i class="flag-new" title="Modelo introduzido em ' + item.year + '"></i>' : '' }
+						${ item.flg_star ? '<i class="flag-star" title="Track Stars"></i>' : '' }
+						${ item.flg_th == 'X' ? '<i class="flag-th" title="Treasure Hunter"></i>' : '' }
+						${ item.flg_th == 'S' ? '<i class="flag-sth" title="SUPER TREASURE HUNTER"></i>' : '' }
+					</div>
 				</div>
 				<div class="model">${ item.model }</div>
 				<div class="info">${ item.year } ${ item.series } ${ item.series_no ? '(' + item.series_no + ')' : '' }</div>
