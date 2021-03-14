@@ -80,10 +80,16 @@ nav {
 .flags {
 	padding: 5px;
 	position: absolute;
+	right: -100px;
 	text-align: right;
 	top: 0;
+	transition: all .5s;
 	width: 100%;
 }
+.item:hover .flags {
+	right: 0;
+}
+
 [class^="flag-"] {
 	display: inline-block;
 	font-style: normal;
@@ -92,7 +98,7 @@ nav {
 .flag-new::before {
 	color: #0a0;
 	content: '\2691';
-	font-size: 30px;
+	font-size: 26px;
 	line-height: 0;
 	text-shadow: 1px 1px 3px #0008;
 }
@@ -117,7 +123,7 @@ nav {
 .flag-star::before {
 	color: gold;
 	content: '\2605';
-	font-size: 30px;
+	font-size: 28px;
 	line-height: 0;
 	text-shadow: 1px 1px 3px #000;
 }
