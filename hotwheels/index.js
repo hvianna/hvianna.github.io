@@ -186,7 +186,8 @@ function doSearch( event ) {
 
 	// navigate thru zoomed images
 	const navModal = ( evt, dir ) => {
-		evt.stopPropagation();
+		if ( evt )
+			evt.stopPropagation();
 		let sibling = zoomedEl;
 		do {
 			// find sibling item in the desired direction - if none, select the modal window (quits zoom)
@@ -197,6 +198,18 @@ function doSearch( event ) {
 
 	$('#prev').addEventListener( 'click', evt => navModal( evt, -1 ) );
 	$('#next').addEventListener( 'click', navModal );
+
+	// enable swipe left/right on modal
+	let touchStartX = 0;
+
+	modal.addEventListener( 'touchstart', evt => touchStartX = evt.changedTouches[0].screenX );
+	modal.addEventListener( 'touchend', evt => {
+		const touchEndX = evt.changedTouches[0].screenY;
+		if ( touchEndX > touchStartX )
+			navModal( null, -1 );
+		else if ( touchEndX < touchStartX )
+			navModal();
+	});
 
 	// hide modal window when clicked
 	modal.addEventListener( 'click', () => modal.classList.add('hide') );
