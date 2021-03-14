@@ -172,7 +172,9 @@ function doSearch( event ) {
 				<span>${ meta.part }</span>
 				<span>${ zoomedEl.querySelector('.model').innerText }</span>
 				<span>${ meta.year }</span>
-				${ meta.th == 'X' ? '<span>TH</span>' : meta.th == 'S' ? '<span>TH</span>' : '' }
+				${ meta.new == 'X' ? '<span>Lançamento</span>' : '' }
+				${ meta.star == 'X' ? '<span>Track Stars</span>' : '' }
+				${ meta.th == 'X' ? '<span>TREASURE HUNT</span>' : meta.th == 'S' ? '<span>SUPER TREASURE HUNT</span>' : '' }
 			`;
 			const img = zoomedEl.querySelector('img');
 			if ( img ) {
