@@ -199,6 +199,7 @@ nav {
 	position: absolute;
 	text-align: center;
 	transform: translateX(-50%);
+	white-space: nowrap;
 }
 .modal .info span {
 	border-right: 1px solid #fff;
@@ -212,7 +213,7 @@ nav {
 .modal .nav {
 	background: #0004;
 	border-radius: 50%;
-	color: #eee;
+	color: #eee8;
 	cursor: pointer;
 	font-size: 4rem;
 	height: 1.25em;
@@ -222,6 +223,7 @@ nav {
 	top: 50%;
 	transform: translateY(-50%);
 	width: 1.25em;
+	z-index: 1;
 }
 .modal .nav:hover {
 	background: #0008;
@@ -400,6 +402,21 @@ nav {
 @media screen and (max-width: 480px) {
 	.container {
 		grid-template-columns: 1fr;
+	}
+
+	.modal .nav {
+		font-size: 2rem;
+	}
+	.modal .info span {
+		border-bottom: 1px solid #fff8;
+		border-right: none;
+		display: block;
+	}
+	.modal .info span:nth-child(n+3) {
+		border-bottom: none;
+	}
+	.modal .info span:nth-child(n+4) {
+		display: none;
 	}
 }
 
