@@ -14,6 +14,7 @@ const $  = document.querySelector.bind( document );
 const $$ = document.querySelectorAll.bind( document );
 
 // globals
+let zoomedEl;
 const searchBox  = $('#search');
 const count      = $('#count');
 
@@ -164,15 +165,36 @@ function doSearch( event ) {
 
 	// zoom image on click
 	document.addEventListener( 'click', evt => {
-		const el = evt.target.closest('.photo');
-		if ( el ) {
-			const img = el.querySelector('img');
+		zoomedEl = evt.target.closest('.item');
+		if ( zoomedEl ) {
+			const meta = zoomedEl.dataset;
+			$('#info').innerHTML = `
+				<span>${ meta.part }</span>
+				<span>${ zoomedEl.querySelector('.model').innerText }</span>
+				<span>${ meta.year }</span>
+				${ meta.th == 'X' ? '<span>TH</span>' : meta.th == 'S' ? '<span>TH</span>' : '' }
+			`;
+			const img = zoomedEl.querySelector('img');
 			if ( img ) {
 				$('#zoom').src = img.src;
 				modal.classList.remove('hide');
 			}
 		}
 	});
+
+	// navigate thru zoomed images
+	const navModal = ( evt, dir ) => {
+		evt.stopPropagation();
+		let sibling = zoomedEl;
+		do {
+			// find sibling item in the desired direction - if none, select the modal window (quits zoom)
+			sibling = sibling[ dir == -1 ? 'previousElementSibling' : 'nextElementSibling' ] || modal;
+		} while ( ! ( sibling.querySelector('img') || sibling == modal ) ); // ignore sibling without an image
+		sibling.click();
+	}
+
+	$('#prev').addEventListener( 'click', evt => navModal( evt, -1 ) );
+	$('#next').addEventListener( 'click', navModal );
 
 	// hide modal window when clicked
 	modal.addEventListener( 'click', () => modal.classList.add('hide') );

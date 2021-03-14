@@ -189,6 +189,56 @@ nav {
 	margin: auto;
 	width: auto;
 }
+.modal .info {
+	background: #0006;
+	border-radius: 10px;
+	bottom: 1em;
+	color: #fff;
+	font-size: 1rem;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	transform: translateX(-50%);
+}
+.modal .info span {
+	border-right: 1px solid #fff;
+	display: inline-block;
+	padding: .25em 1em;
+}
+.modal .info span:last-child {
+	border-right: none;
+}
+
+.modal .nav {
+	background: #0004;
+	border-radius: 50%;
+	color: #eee;
+	cursor: pointer;
+	font-size: 4rem;
+	height: 1.25em;
+	line-height: .9;
+	padding: .2em .1em;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1.25em;
+}
+.modal .nav:hover {
+	background: #0008;
+	color: #fff;
+}
+.modal .nav.next {
+	right: .5em;
+}
+.modal .nav.prev {
+	left: .5em;
+	transform: rotate(180deg);
+	transform-origin: 50% 25%;
+}
+.modal .nav.next::before,
+.modal .nav.prev::before {
+	content: '\279c';
+}
 
 .model {
 	line-height: 1.3;
