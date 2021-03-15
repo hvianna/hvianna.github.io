@@ -204,7 +204,7 @@ function doSearch( event ) {
 
 	modal.addEventListener( 'touchstart', evt => touchStartX = evt.changedTouches[0].screenX );
 	modal.addEventListener( 'touchend', evt => {
-		const touchEndX = evt.changedTouches[0].screenY;
+		const touchEndX = evt.changedTouches[0].screenX;
 		if ( touchEndX > touchStartX )
 			navModal( null, -1 );
 		else if ( touchEndX < touchStartX )
