@@ -340,11 +340,10 @@ nav {
 	border: 2px solid #ccc;
 	border-radius: 50%;
 	color: #ccc;
-	content: 'X';
+	content: '\2716';
 	cursor: pointer;
 	display: block;
 	font-size: .8em;
-	font-weight: bold;
 	height: 1.5em;
 	position: absolute;
 	right: .5em;
@@ -359,13 +358,6 @@ nav {
 }
 #title.wishlist::before {
 	content: 'Lista de Desejos';
-}
-
-#wishlist_toggle::before {
-	content: 'Desejos';
-}
-#wishlist_toggle.wishlist::before {
-	content: 'Coleção';
 }
 
 @media screen and (max-width: 1279px) {

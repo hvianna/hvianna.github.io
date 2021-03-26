@@ -10,7 +10,7 @@
 		<header>
 			<div class="search">
 				<input id="search" type="text" placeholder="Buscar...">
-				<div id="clear" class="search-clear"></div>
+				<div class="search-clear" data-search=""></div>
 			</div>
 			<nav>
 				<ul id="menu" class="menu">
@@ -20,10 +20,18 @@
 					<li>Séries
 						<ul id="series_menu" class="submenu grid-2cols"></ul>
 					</li>
-					<li id="wishlist_toggle"></li>
+					<li>Filtros
+						<ul class="submenu">
+							<li data-search="flags:C">Coleções (não Mainline)</a></li>
+							<li data-search="flags:S">Track Stars</a></li>
+							<li data-search="flags:T">Treasure Hunt</a></li>
+<!--							<li data-search="flags:$">Super Treasure Hunt</a></li> -->
+							<li data-search="flags:P">Premium</a></li>
+						</ul>
+					</li>
 				</ul>
 			</nav>
-			<h1 id="title" title="Volta à página inicial"></h1>
+			<h1 id="title" title="Alterna entre Coleção e Lista de Desejos"></h1>
 		</header>
 		<p id="loading">Carregando...</p>
 		<p class="hide"><span id="count"></span> miniaturas encontradas</p>

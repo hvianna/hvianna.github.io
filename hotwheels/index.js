@@ -136,23 +136,13 @@ function doSearch( event ) {
 		}
 	});
 
-	// show/hide wishlist
-	const wishlistBtn = $('#wishlist_toggle');
+	// alternate between wishlist and collection when clicking on title
 	const title = $('#title');
-	const toggleWishlist = ( force ) => {
-		const active = wishlistBtn.classList.toggle( 'wishlist', force );
+	title.addEventListener( 'click', () => {
+		const active = title.classList.toggle( 'wishlist' );
 		wishlist.classList.toggle( 'hide', ! active );
 		collection.classList.toggle( 'hide', active );
-		title.classList.toggle( 'wishlist', active );
-		count.innerText = ( active ? wishlist : collection ).querySelectorAll('.item:not(.hide)').length;
-	}
-
-	wishlistBtn.addEventListener( 'click', () => toggleWishlist() );
-
-	// clicking the title leads back to the main gallery and clear any search
-	title.addEventListener( 'click', () => {
-		toggleWishlist( false );
-		doSearch();
+		doSearch(); // clear search
 	});
 
 	// show/hide submenus on hover or click
@@ -162,9 +152,9 @@ function doSearch( event ) {
 		el.addEventListener( 'click', () => el.classList.toggle( 'active' ) );
 	});
 
-	// set event listeners for the search box
+	// set event listeners for searches
 	searchBox.addEventListener( 'keyup', doSearch );
-	$('#clear').addEventListener( 'click', () => doSearch() );
+	$$('[data-search]').forEach( el => el.addEventListener( 'click', () => doSearch( el.dataset.search ) ) );
 
 	// zoom image on click
 	document.addEventListener( 'click', evt => {
@@ -194,8 +184,11 @@ function doSearch( event ) {
 
 	// navigate thru zoomed images
 	const navModal = ( evt, dir ) => {
+		// when called by touch event handlers, `evt` is null/undefined
+		// we check this here to avoid trigering a 'click' event as well
 		if ( evt )
 			evt.stopPropagation();
+
 		let sibling = zoomedEl;
 		do {
 			// find sibling item in the desired direction - if none, select the modal window (quits zoom)
