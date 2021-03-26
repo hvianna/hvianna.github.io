@@ -63,18 +63,21 @@ function doSearch( event ) {
 
 	// gallery item template
 	const itemTemplate = ( item ) => {
-		const photo = item.image_url || ( item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : '' );
+		const photo = item.image_url || ( item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : '' ),
+			  [ ...flags ] = item.flags.toUpperCase();
+
 		return `
-			<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }" data-th="${ item.flg_th }" data-star="${ item.flg_star }" data-new="${ item.flg_new }">
+			<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }" data-flags="${ item.flags }">
 				<div class="photo">
 					${ photo ? '<img src="' + photo + '" loading="lazy">' : '' }
 					<div class="number">${ item.year_no }</div>
 					<div class="part">${ item.part_no }</div>
 					<div class="flags">
-						${ item.flg_new ? '<i class="flag-new" title="Modelo introduzido em ' + item.year + '"></i>' : '' }
-						${ item.flg_star ? '<i class="flag-star" title="Track Stars"></i>' : '' }
-						${ item.flg_th == 'X' ? '<i class="flag-th" title="Treasure Hunter"></i>' : '' }
-						${ item.flg_th == 'S' ? '<i class="flag-sth" title="SUPER TREASURE HUNTER"></i>' : '' }
+						${ flags.includes('N') ? '<i class="flag-new" title="Novo!"></i>' : '' }
+						${ flags.includes('S') ? '<i class="flag-star" title="Track Stars"></i>' : '' }
+						${ flags.includes('T') ? '<i class="flag-th" title="Treasure Hunter"></i>' : '' }
+						${ flags.includes('$') ? '<i class="flag-sth" title="SUPER TREASURE HUNTER"></i>' : '' }
+						${ flags.includes('P') ? '<i class="flag-premium" title="Premium"></i>' : '' }
 					</div>
 				</div>
 				<div class="model">${ item.model }</div>
@@ -167,14 +170,19 @@ function doSearch( event ) {
 	document.addEventListener( 'click', evt => {
 		zoomedEl = evt.target.closest('.item');
 		if ( zoomedEl ) {
-			const meta = zoomedEl.dataset;
+			const meta = zoomedEl.dataset,
+				  [ ...flags ] = meta.flags.toUpperCase();
+
 			$('#info').innerHTML = `
 				<span>${ meta.part }</span>
 				<span>${ zoomedEl.querySelector('.model').innerText }</span>
 				<span>${ meta.year }</span>
-				${ meta.new == 'X' ? '<span>Lançamento</span>' : '' }
-				${ meta.star == 'X' ? '<span>Track Stars</span>' : '' }
-				${ meta.th == 'X' ? '<span>TREASURE HUNT</span>' : meta.th == 'S' ? '<span>SUPER TREASURE HUNT</span>' : '' }
+				${ flags.includes('N') ? '<span>Novo!</span>' : '' }
+				${ flags.includes('C') ? '<span>Coleção</span>' : '' }
+				${ flags.includes('S') ? '<span>Track Stars</span>' : '' }
+				${ flags.includes('T') ? '<span>TREASURE HUNT</span>' : '' }
+				${ flags.includes('$') ? '<span>SUPER TREASURE HUNT</span>' : '' }
+				${ flags.includes('P') ? '<span>PREMIUM</span>' : '' }
 			`;
 			const img = zoomedEl.querySelector('img');
 			if ( img ) {

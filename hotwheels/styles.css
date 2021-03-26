@@ -103,7 +103,8 @@ nav {
 	text-shadow: 1px 1px 3px #0008;
 }
 .flag-th::before,
-.flag-sth::before {
+.flag-sth::before,
+.flag-premium::before {
 	background-size: 100% !important;
 	background-repeat: no-repeat !important;
 	content: '';
@@ -126,6 +127,10 @@ nav {
 	font-size: 28px;
 	line-height: 0;
 	text-shadow: 1px 1px 3px #000;
+}
+.flag-premium::before {
+	background: url(rr.png);
+	filter: none;
 }
 
 .hide {
