@@ -193,7 +193,8 @@ function doSearch( event ) {
 		do {
 			// find sibling item in the desired direction - if none, select the modal window (quits zoom)
 			sibling = sibling[ dir == -1 ? 'previousElementSibling' : 'nextElementSibling' ] || modal;
-		} while ( ! ( sibling.querySelector('img') || sibling == modal ) ); // ignore sibling without an image
+ 		// repeat if item is hidden or has no photo, until reaching the end (sibling == modal)
+		} while ( ( sibling.classList.contains('hide') || ! sibling.querySelector('img') ) && sibling !== modal );
 		sibling.click();
 	}
 

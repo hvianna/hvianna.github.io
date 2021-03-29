@@ -102,9 +102,9 @@ nav {
 	line-height: 0;
 	text-shadow: 1px 1px 3px #0008;
 }
-.flag-th::before,
+.flag-premium::before,
 .flag-sth::before,
-.flag-premium::before {
+.flag-th::before {
 	background-size: 100% !important;
 	background-repeat: no-repeat !important;
 	content: '';
@@ -113,13 +113,17 @@ nav {
 	height: 25px;
 	width: 25px;
 }
-.flag-th::before {
-	background: url(th.png);
+.flag-premium::before {
+	background: url(rr.png);
+	filter: drop-shadow(2px 2px 4px #fff) drop-shadow(-2px -2px 4px #fff);
 }
 .flag-sth::before {
 	background: url(sth.png);
 	background-position: 0 2px;
 	width: 50px;
+}
+.flag-th::before {
+	background: url(th.png);
 }
 .flag-star::before {
 	color: gold;
@@ -127,10 +131,6 @@ nav {
 	font-size: 28px;
 	line-height: 0;
 	text-shadow: 1px 1px 3px #000;
-}
-.flag-premium::before {
-	background: url(rr.png);
-	filter: none;
 }
 
 .hide {
