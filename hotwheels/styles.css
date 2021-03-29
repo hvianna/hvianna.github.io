@@ -278,8 +278,8 @@ nav {
 	border-top-left-radius: .5em;
 	border-bottom-left-radius: .5em;
 	bottom: 0;
-	right: -100px;
-	width: 4em;
+	padding: 0 .5em;
+	right: -150px;
 }
 .item:hover .part,
 #wishlist .part {
