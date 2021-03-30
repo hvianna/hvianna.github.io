@@ -146,10 +146,18 @@ function doSearch( event ) {
 	});
 
 	// show/hide submenus on hover or click
-	$$('.menu > li:not([id])').forEach( el => {
-		el.addEventListener( 'mouseover', () => el.classList.toggle( 'active', true ) );
-		el.addEventListener( 'mouseout', () => el.classList.toggle( 'active', false ) );
+	$$('.menu > li').forEach( el => {
+		el.addEventListener( 'mouseover', () => el.classList.add( 'active' ) );
+		el.addEventListener( 'mouseout', () => el.classList.remove( 'active' ) );
 		el.addEventListener( 'click', () => el.classList.toggle( 'active' ) );
+	});
+
+	const mobileMenu = $('#mobile_menu');
+	mobileMenu.addEventListener( 'click', () => mobileMenu.classList.toggle( 'active' ) );
+	$('#menu_close').addEventListener( 'click', () => mobileMenu.classList.remove( 'active' ) );
+
+	$$('.menu li li').forEach( el => {
+		el.addEventListener( 'click', () => mobileMenu.classList.remove( 'active' ) );
 	});
 
 	// set event listeners for searches
@@ -202,6 +210,7 @@ function doSearch( event ) {
 	$('#next').addEventListener( 'click', navModal );
 
 	// enable swipe left/right on modal
+/*
 	let touchStartX = 0;
 
 	modal.addEventListener( 'touchstart', evt => touchStartX = evt.changedTouches[0].screenX );
@@ -212,7 +221,7 @@ function doSearch( event ) {
 		else if ( touchEndX < touchStartX )
 			navModal();
 	});
-
+*/
 	// hide modal window when clicked
 	modal.addEventListener( 'click', () => modal.classList.add('hide') );
 })();
