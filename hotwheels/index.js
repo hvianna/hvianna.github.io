@@ -63,6 +63,9 @@ function doSearch( event ) {
 
 	// gallery item template
 	const itemTemplate = ( item ) => {
+		if ( ! item.model )
+			return '';
+
 		const photo = item.image_url || ( item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : '' ),
 			  [ ...flags ] = item.flags.toUpperCase();
 
