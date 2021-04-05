@@ -2,6 +2,7 @@ title: Henrique Vianna
 description: Greetings, Programs!
 plugins:
   - jemoji
+  - jekyll-redirect-from
 remote_theme: pmarsceill/just-the-docs
 
 # Just the Docs theme options
