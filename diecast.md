@@ -8,5 +8,6 @@ has_toc: false
 
 # Diecast model cars
 
+
 * [My current Hot Wheels collection](/hotwheels/)
-* [Vintage collection from my childhood (1970s Matchbox, Schuco, Buby, Corgi, Majorette)](/vintagediecast/) (on WordPress.com)
+* [Vintage collection from my childhood (1970s Matchbox, Schuco, Buby, Corgi, Majorette)](/vintagediecast/)

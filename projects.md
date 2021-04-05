@@ -2,6 +2,6 @@
 layout: default
 title: Projects
 nav_order: 1
-permalink: /#!
+permalink: /
 has_children: true
 ---
