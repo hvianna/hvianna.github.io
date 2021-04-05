@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hot Wheels collection
-nav_order: 2
+nav_order: 1
 parent: Hobbies
 permalink: /hotwheels/
 ---

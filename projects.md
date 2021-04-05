@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Hobbies
-nav_order: 2
+title: Projects
+nav_order: 1
 permalink: /#!
 has_children: true
 ---

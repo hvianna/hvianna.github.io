@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Vintage die-cast car collection
-nav_order: 1
-parent: Hobbies
+title: Vintage collection (1970s)
+nav_order: 2
+parent: Diecast model cars
+permalink: /vintagediecast/
 redirect_to: https://hvianna.wordpress.com
 ---
