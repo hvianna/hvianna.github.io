@@ -9,6 +9,7 @@ permalink: /
 
 + [![](/img/github.png) /hvianna](https://github.com/hvianna)
 + [![](/img/twitter.png) @HenriqueVianna](https://twitter.com/HenriqueVianna)
++ [![](/img/instagram.png) @henriquevianna](https://www.instagram.com/henriquevianna/)
 
 ## Projects:
 
