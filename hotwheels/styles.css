@@ -317,6 +317,17 @@ nav {
 	position: absolute;
 	top: 0;
 }
+.photo img:not(:first-child) {
+	box-shadow: -2px -2px 4px #0008;
+	left: 200%;
+	transition: all .4s;
+}
+.photo:hover img:nth-child(2) {
+	left: 50%;
+}
+.photo:hover img:nth-child(3) {
+	left: 80%;
+}
 
 .submenu {
 	background: #eee;

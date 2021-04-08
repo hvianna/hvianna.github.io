@@ -14,7 +14,6 @@ const $  = document.querySelector.bind( document );
 const $$ = document.querySelectorAll.bind( document );
 
 // globals
-let zoomedEl;
 const searchBox  = $('#search');
 const count      = $('#count');
 
@@ -60,19 +59,26 @@ function doSearch( event ) {
 	let series = [];
 	let years  = [];
 	let total  = 0;
+	let zoomedEl, currentImg;
 
 	// gallery item template
 	const itemTemplate = ( item ) => {
 		if ( ! item.model )
 			return '';
 
-		const photo = item.image_url || ( item.image_id ? `https://lh3.googleusercontent.com/pw/${item.image_id}=w1400` : '' ),
+		const photos = ( item.image_url || item.image_id || '' ).split(','),
 			  [ ...flags ] = item.flags.toUpperCase();
 
-		return `
+		let html = `
 			<div class="item" data-year="${ item.year }" data-series="${ item.series }" data-part="${ item.part_no }" data-flags="${ item.flags }">
 				<div class="photo">
-					${ photo ? '<img src="' + photo + '" loading="lazy">' : '' }
+		`;
+
+		for ( const photo of photos )
+			if ( photo )
+				html += `<img src="${ photo.startsWith('http') ? photo : 'https://lh3.googleusercontent.com/pw/' + photo + '=w1400' }" loading="lazy">`;
+
+		html += `
 					<div class="number">${ item.year_no }</div>
 					<div class="part">${ item.part_no }</div>
 					<div class="flags">
@@ -87,6 +93,8 @@ function doSearch( event ) {
 				<div class="info">${ item.year } ${ item.series } ${ item.series_no ? '(' + item.series_no + ')' : '' }</div>
 			</div>
 		`;
+
+		return html;
 	}
 
 	// load collection spreadsheet
@@ -188,18 +196,30 @@ function doSearch( event ) {
 			const img = zoomedEl.querySelector('img');
 			if ( img ) {
 				$('#zoom').src = img.src;
+				currentImg = 1;
 				modal.classList.remove('hide');
 			}
 		}
 	});
 
 	// navigate thru zoomed images
-	const navModal = ( evt, dir ) => {
+	const navModal = ( evt, dir = 1 ) => {
 		// when called by touch event handlers, `evt` is null/undefined
 		// we check this here to avoid trigering a 'click' event as well
 		if ( evt )
 			evt.stopPropagation();
 
+		// check if there are more pictures of the current item
+		const photos  = zoomedEl.querySelectorAll('img'),
+			  nextImg = currentImg + dir;
+
+		if ( nextImg > 0 && nextImg <= photos.length ) {
+			currentImg = nextImg;
+			$('#zoom').src = photos[ currentImg - 1 ].src;
+			return;
+		}
+
+		// move to next/previous gallery item
 		let sibling = zoomedEl;
 		do {
 			// find sibling item in the desired direction - if none, select the modal window (quits zoom)
