@@ -4,6 +4,7 @@ plugins:
   - jemoji
   - jekyll-redirect-from
 remote_theme: pmarsceill/just-the-docs
+include: [".well-known"]
 
 # Just the Docs theme options
 #footer_content: "Copyright &copy; 2018-2020 Henrique Avila Vianna."
