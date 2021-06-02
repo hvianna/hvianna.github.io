@@ -12,11 +12,11 @@ nav_order: 1
 
 | parâmetro | descrição |
 |--|--|
-| `-c:v` | codec de vídeo: `libx264` para H.264; `libx265` para H.265 / HEVC |
+| `-c:v` | codec de vídeo: `libx264` para H.264; `libx265` para H.265 / HEVC; `libvpx-vp9` para VP9 (WebM) |
 | `-c:a` | codec de áudio: `aac`, `ac3`, `pcm_s16le`, `pcm_s24le`, `flac` |
 | `-vf` | filtro de vídeo: `yadif` para *deinterlace* |
 | `-preset` | `faster`, `fast`, `medium`, `slow`, `slower` ( > velocidade > tamanho de arquivo ) |
-| `-crf` | `0` = lossless; `51` = pior qualidade - default: `28` para x265; `23` para x264 |
+| `-crf` | `0` = lossless; `51` = pior qualidade - default: `23` para x264; `28` para x265; `31` para vp9 (usar com `-b:v 0`) |
 
 ### Transcode de vídeo entrelaçado para x.264 progressivo e áudio PCM 24 bits
 ```
@@ -54,6 +54,21 @@ A string de formatação deve especificar a largura correta quando os números f
 Ver [documentação relacionada](http://www.ffmpeg.org/faq.html#toc-How-do-I-encode-single-pictures-into-movies_003f).
 
 
+### Adicionando uma marca d'água ao vídeo (overlay de imagem)
+```
+ffmpeg -i input.mp4 -i logo.png -filter_complex "[0:v][1:v] overlay=1620:980:enable='between(t,0,20)'" -pix_fmt yuv420p -c:v libx264 -crf 23 -c:a copy output.mp4
+```
+
+parâmetro | descrição
+--|--
+`[0:v][1:v]` | ordem de sobreposição das entradas de vídeo
+`overlay=1620:980` | posição X:Y da imagem a partir do canto superior esquerdo
+`overlay=W-w:H-h` | idem acima, porém calcula automaticamente as dimensões do vídeo (W,H) menos as dimensões da imagem (w,h)
+`enable='between(t,0,20)'` | ativa o overlay entre o tempo 0 e 20 (em segundos)
+
+[Referência](https://video.stackexchange.com/a/12111)
+
+
 ### Copiando capítulos de um arquivo de entrada
 ```
 ffmpeg -i input.mkv -map_chapters 0 -c copy -c:v libx264 -preset slow -crf 23 -c:a copy output.mkv
@@ -64,8 +79,10 @@ parâmetro | descrição
 `-map_chapters` | índice do arquivo de entrada
 
 Documentação relacionada:
-+ [Codificação H.265](https://trac.ffmpeg.org/wiki/Encode/H.265)
 + [Codificação H.264](https://trac.ffmpeg.org/wiki/Encode/H.264)
++ [Codificação H.265](https://trac.ffmpeg.org/wiki/Encode/H.265)
++ [Codificação VP9](https://trac.ffmpeg.org/wiki/Encode/VP9)
++ [Codificação AV1](https://trac.ffmpeg.org/wiki/Encode/AV1)
 + [Filtros](https://ffmpeg.org/ffmpeg-filters.html)
 + [Map](https://trac.ffmpeg.org/wiki/Map)
 + [Advanced options](http://ffmpeg.org/ffmpeg.html#Advanced-options)
