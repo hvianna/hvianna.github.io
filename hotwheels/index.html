@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Coleção Hot Wheels | Henrique Vianna</title>
+		<link href="styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div class="search">
+				<input id="search" type="text" placeholder="Buscar...">
+				<div class="search-clear" data-search=""></div>
+			</div>
+			<nav>
+				<div id="mobile_menu" class="menu-toggle">Menu</div>
+				<ul id="menu" class="menu">
+					<div id="menu_close" class="menu-close"></div>
+					<li>Anos
+						<ul id="year_menu" class="submenu"></ul>
+					</li>
+					<li>Séries
+						<ul id="series_menu" class="submenu grid-2cols"></ul>
+					</li>
+					<li>Filtros
+						<ul class="submenu">
+							<li data-search="flags:C">Coleções (não Mainline)</a></li>
+							<li data-search="flags:S">Track Stars</a></li>
+							<li data-search="flags:T">Treasure Hunt</a></li>
+<!--							<li data-search="flags:$">Super Treasure Hunt</a></li> -->
+							<li data-search="flags:P">Premium</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<h1 id="title"></h1>
+		</header>
+		<p id="loading">Carregando...</p>
+		<p class="hide"><span id="count"></span> miniaturas encontradas</p>
+		<div id="collection" class="container"></div>
+		<div id="wishlist" class="container hide"></div>
+		<div class="credits">
+			Powered by: <a href="https://docs.google.com" target="_blank">Google Sheets & Photos</a> &middot;
+			<a href="https://www.papaparse.com/" target="_blank">Papa Parse</a> &middot;
+			<a href="https://hotwheels.fandom.com/" target="_blank">Hot Wheels Wiki</a> &middot;
+			<a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+			Code on <a href="https://github.com/hvianna/hvianna.github.io/tree/master/hotwheels" target="_blank">GitHub</a>.
+		</div>
+		<div id="modal" class="modal hide">
+			<div id="prev" class="nav prev"></div>
+			<div id="next" class="nav next"></div>
+			<div id="info" class="info"></div>
+			<img src="" id="zoom"></div>
+		<script type="module" src="index.js"></script>
+	</body>
+</html>

@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400');
+
+:root {
+	/* filters to colorize black to a specific color - kudos https://codepen.io/sosuke/pen/Pjoqqp */
+	--colorize-gold: invert(72%) sepia(73%) saturate(1151%) hue-rotate(2deg) brightness(107%) contrast(107%); /* ref #ffd700 */
+	--colorize-gold-invert: invert(28%) sepia(73%) saturate(1151%) hue-rotate(2deg) brightness(107%) contrast(107%);
+	--colorize-uscgold-invert: invert(26%) sepia(87%) saturate(937%) hue-rotate(355deg) brightness(98%) contrast(109%); /* ref #ffcc00 */
+	--colorize-silver: invert(79%) sepia(6%) saturate(116%) hue-rotate(214deg) brightness(86%) contrast(88%); /* ref #aaa9ad */
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #fafafa;
+	color: #222;
+	font-family: 'Fira Sans', sans-serif;
+	line-height: 1.6;
+	margin: auto;
+	max-width: 100%;
+	padding: 2rem;
+	width: 1600px;
+}
+img {
+	display: block;
+	width: 100%;
+}
+a {
+	color: #04b71b;
+}
+h1, h2, strong {
+	color: #111;
+}
+button, input, select, textarea {
+	font: inherit;
+	padding: .4rem;
+	width: 100%;
+}
+button, input[type="button"] {
+	padding: .2rem .4rem;
+}
+header {
+	align-items: center;
+	background: #f5f5f5;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin-bottom: 20px;
+	padding: 0 1em;
+}
+header h1 {
+	margin: 0;
+	cursor: pointer;
+	text-align: right;
+}
+nav {
+	justify-self: center;
+}
+
+.container {
+	display: grid;
+	gap: 1em;
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.credits {
+	font-size: .8rem;
+	margin-top: 40px;
+}
+
+.error {
+	color: #d00;
+	font-weight: bold;
+}
+
+.grid-2cols {
+	grid-template-columns: 1fr 1fr;
+}
+
+.flags {
+	padding: 5px;
+	position: absolute;
+	right: -100px;
+	text-align: right;
+	top: 0;
+	transition: all .5s;
+	width: 100%;
+}
+.item:hover .flags {
+	right: 0;
+}
+
+[class^="flag-"] {
+	display: inline-block;
+	font-style: normal;
+	vertical-align: middle;
+}
+.flag-new::before {
+	color: #0a0;
+	content: '\2691';
+	font-size: 26px;
+	line-height: 0;
+	text-shadow: 1px 1px 3px #0008;
+}
+.flag-premium::before,
+.flag-sth::before,
+.flag-th::before {
+	background-size: 100% !important;
+	background-repeat: no-repeat !important;
+	content: '';
+	display: inline-block;
+	filter: var(--colorize-uscgold-invert);
+	height: 25px;
+	width: 25px;
+}
+.flag-premium::before {
+	background: url(rr.png);
+	filter: drop-shadow(2px 2px 4px #fff) drop-shadow(-2px -2px 4px #fff);
+}
+.flag-sth::before {
+	background: url(sth.png);
+	background-position: 0 2px;
+	width: 50px;
+}
+.flag-th::before {
+	background: url(th.png);
+}
+.flag-star::before {
+	color: gold;
+	content: '\2605';
+	font-size: 28px;
+	line-height: 0;
+	text-shadow: 1px 1px 3px #000;
+}
+
+.hide {
+	display: none;
+}
+
+.info {
+	font-size: .8rem;
+}
+.info,
+.model {
+	padding: 0 4px;
+}
+
+.item {
+	cursor: pointer;
+	position: relative;
+}
+.item:hover {
+	outline: 4px solid orange;
+}
+
+.menu,
+.submenu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.menu li {
+	cursor: pointer;
+}
+.menu > li {
+	border-top: 4px solid transparent;
+	display: inline-block;
+	margin-right: 10px;
+	padding: 10px;
+	position: relative;
+}
+.menu > li.active {
+	background: #eee;
+	border-color: orange;
+}
+.menu > li.active > .submenu {
+    display: block;
+}
+.menu > li.active > .submenu.grid-2cols {
+	display: grid;
+}
+
+.menu-close,
+.menu-toggle {
+	display: none;
+}
+
+.modal {
+	background: #000c;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 99;
+}
+.modal img {
+	height: 100%;
+	margin: auto;
+	width: auto;
+}
+.modal .info {
+	background: #0006;
+	border-radius: 10px;
+	bottom: 1em;
+	color: #fff;
+	font-size: 1rem;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	z-index: 1;
+}
+.modal .info span {
+	border-right: 1px solid #fff;
+	display: inline-block;
+	padding: .25em 1em;
+}
+.modal .info span:last-child {
+	border-right: none;
+}
+
+.modal .nav {
+	background: #0004;
+	border-radius: 50%;
+	color: #eee8;
+	cursor: pointer;
+	font-size: 4rem;
+	height: 1.25em;
+	line-height: .9;
+	padding: .2em .1em;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1.25em;
+	z-index: 1;
+}
+.modal .nav:hover {
+	background: #0008;
+	color: #fff;
+}
+.modal .nav.next {
+	right: .5em;
+}
+.modal .nav.prev {
+	left: .5em;
+	transform: rotate(180deg);
+	transform-origin: 50% 25%;
+}
+.modal .nav.next::before,
+.modal .nav.prev::before {
+	content: '\279c';
+}
+
+.model {
+	line-height: 1.3;
+}
+
+.number,
+.part {
+	color: #fff;
+	font-size: 1.1rem;
+	line-height: 1.8;
+	position: absolute;
+	text-align: center;
+	transition: all .25s;
+}
+
+.number {
+	background: #0002;
+	border-top-right-radius: .5em;
+	border-bottom-right-radius: .5em;
+	left: 0;
+	top: 0;
+	width: 2.5em;
+}
+.item:hover .number {
+	background: orange;
+}
+
+.part {
+	background: orange;
+	border-top-left-radius: .5em;
+	border-bottom-left-radius: .5em;
+	bottom: 0;
+	padding: 0 .5em;
+	right: -150px;
+}
+.item:hover .part,
+#wishlist .part {
+	right: 0;
+}
+#wishlist .item:not(:hover) .part {
+	background: #666;
+}
+
+.photo {
+	background: #eee;
+	margin-bottom: 6px;
+	overflow: hidden;
+	padding-top: 75%; /* force 4:3 aspect ratio - kudos https://css-tricks.com/aspect-ratio-boxes */
+	position: relative;
+	width: 100%;
+}
+.photo::before {
+	color: #fff;
+	content: 'SEM FOTO';
+	font-weight: bold;
+	left: 50%;
+	position: absolute;
+	text-shadow: 2px 2px 6px #0008;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+.photo img {
+	position: absolute;
+	top: 0;
+}
+.photo img:not(:first-child) {
+	box-shadow: -2px -2px 4px #0008;
+	left: 200%;
+	transition: all .4s;
+}
+.photo:hover img:nth-child(2) {
+	left: 50%;
+}
+.photo:hover img:nth-child(3) {
+	left: 80%;
+}
+
+.submenu {
+	background: #eee;
+	box-shadow: 4px 4px 5px #0002;
+	display: none;
+	left: 0;
+	min-width: 200px;
+	position: absolute;
+	top: 45px;
+	z-index: 9;
+}
+.submenu li {
+	padding: 12px;
+}
+.submenu li:hover {
+	background: #444;
+	color: #fff
+}
+.submenu.grid-2cols {
+	width: 400px;
+}
+
+.search {
+	position: relative;
+}
+.search-clear::before {
+	border: 2px solid #ccc;
+	border-radius: 50%;
+	color: #ccc;
+	content: '\2716';
+	cursor: pointer;
+	display: block;
+	font-size: .8em;
+	height: 1.5em;
+	position: absolute;
+	right: .5em;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1.5em;
+}
+
+#title::before {
+	content: 'Coleção Hot Wheels';
+}
+#title.wishlist::before {
+	content: 'Lista de Desejos';
+}
+
+@media screen and (max-width: 1279px) {
+	.container {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	h1 {
+		font-size: 1.4em;
+	}
+
+	.menu-toggle {
+		display: block;
+		padding: 10px;
+	}
+	.menu-toggle:not(.active) ~ .menu {
+		display: none;
+	}
+
+	.menu {
+		background: #eee;
+		min-width: 200px;
+		position: absolute;
+		z-index: 9;
+	}
+	.menu > li {
+		background: transparent !important;
+		border: none;
+		display: block;
+		margin-right: 0;
+	}
+
+	.submenu {
+		background: transparent !important;
+		box-shadow: none;
+		margin-top: 20px;
+		position: static;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	body {
+		padding: 1rem;
+	}
+
+	header {
+		background: none;
+		padding: 0;
+	}
+
+	h1 {
+		font-size: 1.2em;
+		line-height: 1.3;
+	}
+
+	.container {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.container {
+		grid-template-columns: 1fr;
+	}
+
+	.menu-toggle:not(.active) ~ .menu {
+		display: block;
+		left: -1000px;
+	}
+
+	.menu {
+		background: #000d;
+		color: #fff;
+		font-size: 1.2em;
+		left: 0;
+		min-height: 100vh;
+		padding: 10px;
+		top: 0;
+		transition: all .5s ease-in-out;
+		width: 100%;
+	}
+	.submenu.grid-2cols {
+		width: 100%;
+	}
+	.menu-close {
+		display: block;
+		padding: 1em;
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 99;
+	}
+	.menu-close::before {
+		color: #fff;
+		content: '\2716';
+	}
+
+	.modal .nav {
+		font-size: 3rem;
+	}
+	.modal .nav.next {
+		right: .25em;
+	}
+	.modal .nav.prev {
+		left: .25em;
+	}
+	.modal .info span {
+		border-bottom: 1px solid #fff8;
+		border-right: none;
+		display: block;
+	}
+	.modal .info span:nth-child(n+3) {
+		border-bottom: none;
+	}
+	.modal .info span:nth-child(n+4) {
+		display: none;
+	}
+}
+
+@media (orientation: portrait) {
+	.modal img {
+		height: auto;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+	}
+}

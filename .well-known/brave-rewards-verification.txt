@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: henriquevianna.com
+Token: 6a74518fe61fdc75312a242c5b96b824944d606496464107526a9d42308c716a
