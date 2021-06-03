@@ -89,7 +89,8 @@ ffmpeg -i "concat:00004.m2ts|00005.m2ts|00003.m2ts" -c:v libx264 -preset slow -c
 ffmpeg -i 0001.m2ts -i 0002.m2ts -filter_complex "[0:v:0][0:a:0][1:v:0][1:a:0]concat=n=2:v=1:a=1[outv][outa]" -map "[outv]" -map "[outa]" -c:v libx264 -preset slow -crf 20 -c:a pcm_s24le output.mkv
 ```
 
-**Referência:** https://trac.ffmpeg.org/wiki/Concatenate
+### Referência
++ https://trac.ffmpeg.org/wiki/Concatenate
 
 
 ## Mux / demux / subs
@@ -120,8 +121,8 @@ ffmpeg -i input.m2ts -map 0:0 -map 0:2 -c:v:0 copy -c:a:0 copy output.m2ts
 ```
 ffprobe output.m2ts
 ```
-> Stream #0:0: Video: hevc (Main 10) (HDMV / 0x564D4448), yuv420p10le, 3840x2160 [SAR 1:1 DAR 16:9], q=2-31, 23.98 fps<br>
-> Stream #0:1: Audio: truehd (AC-3 / 0x332D4341), 48000 Hz, 7.1, s32 (24 bit)
+> Stream #0:0&#58; Video: hevc (Main 10) (HDMV / 0x564D4448), yuv420p10le, 3840x2160 [SAR 1:1 DAR 16:9], q=2-31, 23.98 fps<br>
+> Stream #0:1&#58; Audio: truehd (AC-3 / 0x332D4341), 48000 Hz, 7.1, s32 (24 bit)
 
 
 ### Multiplexar streams elementares
@@ -181,7 +182,7 @@ IF [%1]==[] (
 ffmpeg -i %1 -c:v copy -map 0:0 "%~n1.h264" -c:a copy -map 0:1 "%~n1.aac" -c:s srt -map 0:2 "%~n1.srt"
 ```
 
-## Converter para GIF animada
+## Vídeo -> GIF animada
 
 ### Gerar palette
 
@@ -211,7 +212,7 @@ ffmpeg -ss 30 -t 3 -i input.mp4 -i palette.png -filter_complex
 + [https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg](https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg)
 
 
-## Gerando vídeo a partir de um conjunto de imagens
+## Vídeo a partir de stills
 ```
 ffmpeg -r 29.97 -i "%06d.png" -pix_fmt yuv420p -c:v libx265 -crf 28 output.mp4
 ```
@@ -226,10 +227,11 @@ parâmetro | descrição
 As imagens devem ser numeradas sequencialmente, sem interrupções, a partir de zero (ou utilize o parâmetro `-start_number`).
 A string de formatação deve especificar a largura correta quando os números forem formatados com zeros à esquerda, caso contrário é possível utilizar apenas `%d`.
 
-**Referência:** http://www.ffmpeg.org/faq.html#toc-How-do-I-encode-single-pictures-into-movies_003f
+### Referência
++ http://www.ffmpeg.org/faq.html#toc-How-do-I-encode-single-pictures-into-movies_003f
 
 
-## Adicionando uma marca d'água ao vídeo (overlay de imagem)
+## Marca d'água (overlay de imagem)
 ```
 ffmpeg -i input.mp4 -i logo.png -filter_complex "[0:v][1:v] overlay=1620:980:enable='between(t,0,20)'" -pix_fmt yuv420p -c:v libx264 -crf 23 -c:a copy output.mp4
 ```
@@ -241,7 +243,8 @@ parâmetro | descrição
 `overlay=W-w:H-h` | idem acima, porém calcula automaticamente as dimensões do vídeo (W,H) menos as dimensões da imagem (w,h)
 `enable='between(t,0,20)'` | ativa o overlay entre o tempo 0 e 20 (em segundos)
 
-**Referência:** https://video.stackexchange.com/a/12111
+### Referência
++ https://video.stackexchange.com/a/12111
 
 
 ## Áudio
