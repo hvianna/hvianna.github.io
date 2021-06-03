@@ -1,14 +1,8 @@
----
-layout: default
-title: gitflow (pt-BR)
-nav_exclude: true
----
-
 # gitflow - Um modelo bem-sucedido de branches para Git
 
 Resumo traduzido por [Henrique Vianna](https://henriquevianna.com) do [post original de Vincent Driessen](https://nvie.com/posts/a-successful-git-branching-model/)
 
-<p align="center"><img height="762" src="img/git-model-pt.png"></p>
+<p align="center"><img height="762" src="img/gitflow-model-pt.png"></p>
 
 O modelo apresentado aqui é, essencialmente, apenas um **conjunto de procedimentos que os membros da equipe devem seguir** para que se obtenha um processo gerenciado de desenvolvimento de software.
 
@@ -16,7 +10,7 @@ O modelo apresentado aqui é, essencialmente, apenas um **conjunto de procedimen
 
 A configuração de repositório sugerida para este modelo é baseada em um repositório "verdade" central. Vamos chamar este repositório de `origin`, pois é um nome familiar a todos os usuários de Git.
 
-<p align="center"><img height="361" src="img/centr-decentr@2x.png"></p>
+<p align="center"><img height="361" src="img/gitflow-teams.png"></p>
 
 Desenvolvedores também podem trocar alterações diretamente entre si, formando sub-equipes.
 Para isto, basta definir um remoto do Git que aponte para o repositório do colega.
@@ -86,7 +80,7 @@ $ git push origin develop
 
 O flag `--no-ff` faz com que o merge sempre crie um novo objeto de commit, mesmo que ele possa ser realizado com um fast-forward. Isto evita que se perca informação sobre a existência de uma branch de funcionalidade e agrupa todos os commits que criaram aquela funcionalidade. Compare:
 
-<p align="center"><img height="423" src="img/merge-without-ff@2x.png"></p>
+<p align="center"><img height="423" src="img/gitflow-merge.png"></p>
 
 No segundo caso, é impossível ver no histórico do Git quais commits contribuiram para implementar uma funcionalidade — você precisaria ler todas as mensagens de log manualmente. **Reverter uma funcionalidade inteira (isto é, um grupo de commits) é uma verdadeira dor-de-cabeça no segundo caso, mas é facilmente executável se o flag `--no-ff` for utilizado.**
 

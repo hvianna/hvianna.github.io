@@ -20,38 +20,16 @@
 	<style>
 		@media (min-width: 1200px) {
 			:root {
-				--cover-max-width: 1200px;
 				--content-max-width: 1200px;
 			}
 		}
 
-		h3 code {
-			font-size: inherit !important;
-		}
-
-		img {
-			max-width: 100%;
-		}
-
-		.app-name img {
-			width: 160px;
-		}
-
-		.app-name-link::after {
-			content: 'Henrique Vianna';
-		}
-
-		li .emoji {
-			background: #fff;
-			margin-left: -1.5rem;
-		}
-
-		.markdown-section h3 ~ h3 {
-			margin-top: 0;
-		}
-
-		p ~ .table-wrapper table {
-			margin-top: 0;
+		.sidebar .app-name-link {
+			background: url(/img/avatar-ani.webp);
+			background-repeat: no-repeat;
+			background-size: auto 32px;
+			padding-left: 10px;
+			display: block;
 		}
 	</style>
 </head>
@@ -60,14 +38,13 @@
 	<script>
 		window.$docsify = {
 			name: 'Henrique Vianna',
-//			repo: 'https://github.com/hvianna/hvianna.github.io',
 			auto2top: true,
 //			relativePath: true,
-			logo: '/img/avatar-ani.webp',
-			noCompileLinks: ['/img/.*'],
+//			logo: '/img/avatar-ani.webp',
+			noCompileLinks: [ '/hotwheels', '/simple' ],
 //			loadNavbar: 'navbar.md',
 			loadSidebar: 'sidebar.md',
-//			subMaxLevel: 2,
+			subMaxLevel: 3,
 			alias: {
 				'/.*/sidebar.md': '/sidebar.md'
 			}

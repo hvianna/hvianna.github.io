@@ -1,11 +1,3 @@
----
-layout: default
-title: Python
-nav_order: 4
-has_children: false
-parent: Notes and bookmarks
----
-
 # Python
 
 To enable UTF-8 mode on Windows:

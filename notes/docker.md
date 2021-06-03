@@ -1,11 +1,3 @@
----
-layout: default
-title: Docker basics
-parent: Server tools
-grand_parent: Notes and bookmarks
-nav_order: 1
----
-
 # Docker
 
 ## Instalação do Docker
@@ -39,7 +31,55 @@ Os passos 1 e 2 só precisam ser realizados uma vez. Depois, basta executar no p
 
 + [https://docs.docker.com/toolbox/toolbox_install_windows/](https://docs.docker.com/toolbox/toolbox_install_windows/)
 
-
-## Documentação:
+## Documentação
 
 + [https://docs.docker.com/engine/reference/commandline/](https://docs.docker.com/engine/reference/commandline/)
+
+## Cheatsheet
+
+Parar um container (não remove):
+```
+docker stop <id> | <name>
+```
+
+Parar e remover um container:
+```
+docker rm <id> | <name>
+```
+
+Iniciar um container com o composer (verificar existência do arquivo `docker-composer.yml`):
+```
+docker-compose up -d
+```
+
+Parar e remover um container com composer:
+```
+docker-compose down
+```
+
+Listar containers em execução:
+```
+docker ps
+```
+
+Listar todos os containers criados:
+```
+docker ps -a
+```
+
+Listar todas as imagens instaladas:
+```
+docker images -a
+```
+
+Remover uma imagem instalada:
+```
+docker rmi <id> | <repository>
+```
+
+Acesso ao filesystem de containers:
+```
+docker exec -t -i teste-wp sh
+```
+
+https://stackoverflow.com/a/20816397/2370385

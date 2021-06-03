@@ -1,14 +1,1 @@
-title: Henrique Vianna
-description: Greetings, Programs!
-plugins:
-  - jemoji
-  - jekyll-redirect-from
-remote_theme: pmarsceill/just-the-docs
 include: [".well-known"]
-
-# Just the Docs theme options
-#footer_content: "Copyright &copy; 2018-2020 Henrique Avila Vianna."
-#color_scheme: "dark"
-#aux_links:
-#  "View on GitHub":
-#    - "https://github.com/hvianna/hvianna.github.io"

@@ -1,14 +1,9 @@
----
-layout: default
-title: node / npm basics
-parent: JavaScript
-grand_parent: Notes and bookmarks
-nav_order: 2
----
+# npm
 
-# node / npm basics
+## Documentation
 
-+ [npm docs home](https://docs.npmjs.com/) / [npm install](https://docs.npmjs.com/cli/install)
++ [npm docs home](https://docs.npmjs.com/)
++ [npm install](https://docs.npmjs.com/cli/install)
 
 > When installing a package that will be bundled into your production bundle, you should use `npm install --save`. If you're installing a package for development purposes (e.g. a linter, testing libraries, etc.) then you should use `npm install --save-dev`.
 
@@ -17,6 +12,26 @@ nav_order: 2
 > Custom NPM scripts must be preceded by either `run-script` or `run` for them to be executed correctly.
 
 + [How to keep a node server running](https://stackoverflow.com/questions/12701259/how-to-make-a-node-js-application-run-permanently)
+
+## Quick HTTP server to test projects locally
+
+`npx http-server`
+
+Serve the files in the `./public` directory if it exists, or `./` otherwise, at `localhost:8080`.
+
+---
+
+For better performance, install the [http-server](https://www.npmjs.com/package/http-server) npm package globally:
+
+`npm i -g http-server`
+
+Now, to start the server, simply run:
+
+`http-server [-p port]`
+
+See all [options](https://www.npmjs.com/package/http-server#available-options).
+
+## Cheatsheet
 
 ### Get a list of globally installed packages
 
@@ -40,13 +55,3 @@ nav_order: 2
 
 Reference: https://medium.com/@kevinkreuzer/publishing-a-beta-or-alpha-version-to-npm-46035b630dd7
 
-
-### Bundling node modules for usage in a browser
-
-+ https://webpack.js.org/
-
-### Compiling a node.js script to a standalone application
-
-+ [pkg](https://github.com/zeit/pkg)
-+ [nexe](https://github.com/nexe/nexe)
-+ [Electron](https://electronjs.org/)
