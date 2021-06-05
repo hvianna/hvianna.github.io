@@ -31,6 +31,65 @@
 			padding-left: 10px;
 			display: block;
 		}
+
+		body[data-page="home.md"] h1 {
+			margin: 0;
+		}
+		body[data-page="home.md"] h1 ~ p {
+			margin: 0 0 2em;
+		}
+
+		body[data-page="home.md"] .markdown-section table th {
+			font-weight: normal;
+		}
+
+		footer {
+			font-size: .9rem;
+		}
+		.sidebar-nav footer a,
+		.sidebar nav footer a,
+		.sidebar-nav footer a:hover,
+		.sidebar nav footer a:hover {
+			border: none;
+			display: inline;
+			margin: 0;
+			text-decoration: underline;
+		}
+
+		@media (min-width: 30.01em) {
+			body[data-page="home.md"] .markdown-section table td,
+			body[data-page="home.md"] .markdown-section table th {
+				vertical-align: top;
+				width: 50%;
+			}
+
+			body[data-page="home.md"] .markdown-section table tr td:first-child {
+				text-align: right;
+			}
+		}
+
+		/* Adjustments for the home Projects table on mobile */
+		@media (max-width: 30em) {
+			/* Remove padding and headers at the left */
+			body[data-page="home.md"] .markdown-section .table-wrapper th,
+			body[data-page="home.md"] .markdown-section .table-wrapper td {
+				padding: 0;
+			}
+			body[data-page="home.md"] .markdown-section .table-wrapper td::before {
+				content: '';
+			}
+			/* Show table's header line */
+			body[data-page="home.md"] .markdown-section .table-wrapper thead {
+				display: block;
+			}
+			/* Move the text cell below the image on odd lines */
+			body[data-page="home.md"] .markdown-section .table-wrapper tr {
+				display: grid;
+			}
+			body[data-page="home.md"] .markdown-section .table-wrapper tbody tr:nth-child(odd) td:first-child {
+				order: 2;
+			}
+		}
 	</style>
 </head>
 <body>
