@@ -24,6 +24,7 @@
 
 + [CSS Grid Generator](https://cssgrid-generator.netlify.com/)
 + [Web Almanac](https://almanac.httparchive.org/)
++ [Big list of http static server one-liners](https://gist.github.com/willurd/5720255)
 
 ## 👨‍💻 CSS native font stacks
 
