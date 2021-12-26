@@ -23,6 +23,7 @@
 * [Git](notes/git)
 * [HTML/CSS](notes/html)
 * [Javascript](notes/js)
+* [macOS](notes/macos)
 * [MKVMerge](notes/mkvmerge)
 * [node.js](notes/node)
 * [npm](notes/npm)
