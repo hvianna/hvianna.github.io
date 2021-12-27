@@ -1,11 +1,36 @@
 # Git
 
-* Remove deleted remote branches<br>
-  `git remote prune origin` or<br>
-  `git fetch origin --prune`
+### Remove deleted remote branches
 
-* Check out a GitHub Pull Request to a new branch (GitHub CLI)<br>
-  `gh pr checkout <number> -b <branch>`
+```shell
+git remote prune origin
+```
+or
+```shell
+git fetch origin --prune
+```
+
+### Check out a GitHub Pull Request to a new branch (GitHub CLI)
+
+```shell
+gh pr checkout <number> -b <branch>
+```
+
+### Clone (or add remote) from local network
+
+* via SSH:
+  ```
+  git clone user@192.168.100.18:repo/repository.git
+  ```
+
+* via file path:
+  ```
+  git clone file:///path/to/repo
+  ```
+
+To clone from an SMB share, mount it first to have it available via file path.
+
+Reference: [https://serverfault.com/questions/463811/git-clone-pull-across-local-network](https://serverfault.com/questions/463811/git-clone-pull-across-local-network)
 
 
 ## gitflow
