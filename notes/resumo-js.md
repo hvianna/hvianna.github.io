@@ -1,11 +1,11 @@
 # Resumão do JavaScript moderno
 
-#### Em construção. Atualizado em 1º/FEV/2022
+##### EM CONSTRUÇÃO! Atualizado em 1º/FEV/2022
 
 ## Nome e origens
 
-A linguagem *JavaScript* foi originalmente desenvolvida pela [Netscape](https://pt.wikipedia.org/wiki/Netscape), mas a Microsoft criou uma variante própria,
-a qual batizou de *JScript*, para o Internet Explorer 3.0. No final de 1996, a [Ecma International](https://www.ecma-international.org) iniciou a trabalhar
+A linguagem *JavaScript* foi originalmente desenvolvida pela [Netscape](https://pt.wikipedia.org/wiki/Netscape), mas a Microsoft criou sua própria versão,
+a qual batizou de *JScript*, para o Internet Explorer 3.0. No final de 1996, a [Ecma International](https://www.ecma-international.org) começou a trabalhar
 na especificação de uma linguagem padrão para todos os browsers. Desde então, o nome oficial da linguagem é **ECMAScript**.
 
 Inicialmente, as versões da linguagem eram identificadas pelo número de sua edição, com siglas como **ES3** (3ª edição, de 1999) ou **ES5** (5ª edição, de 2009).
@@ -124,7 +124,7 @@ funcaoExemplo();
 ?> `const`, `let` ou `var` declaradas no **corpo principal** do script (fora de qualquer função) têm escopo **global**.
 
 
-## Iterar arrays e objetos
+## Iteração em arrays e objetos
 
 ### `for ... in`
 
@@ -306,7 +306,7 @@ console.log( validaOpcoes( { min: -1, max: 20 } ) ); // { min: -1, max: 20, incr
 
 ### Declarações x Expressões
 
-*hoisting*, IIFEs, funções anônimas, ...
+*hoisting*, IIFEs, funções anônimas, parâmetros Rest...
 
 ### *Arrow functions*
 
@@ -322,5 +322,3 @@ let obj = {
 obj.arrowFunction(); // undefined, Window {...}
 obj.funcaoPadrao();  // 10, Object {...}
 ```
-
-
