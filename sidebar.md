@@ -17,16 +17,18 @@
 
 **Notes and bookmarks**
 
-* [D-Link DNS-320L NAS](notes/dns320l)
+* [D-Link DNS-320L NAS 🇧🇷](notes/dns320l)
 * [Docker](notes/docker)
-* [FFmpeg](notes/ffmpeg)
+* [FFmpeg 🇧🇷](notes/ffmpeg)
 * [Git](notes/git)
+* [gitflow 🇧🇷](notes/gitflow)
 * [HTML/CSS](notes/html)
-* [Javascript](notes/js)
+* [JavaScript](notes/js)
 * [macOS](notes/macos)
-* [MKVMerge](notes/mkvmerge)
+* [MKVMerge 🇧🇷](notes/mkvmerge)
 * [node.js](notes/node)
 * [npm](notes/npm)
+* [Resumão do JS moderno 🇧🇷](notes/resumo-js)
 * [Static web hosting](notes/web-hosting)
 * [Windows](notes/windows)
 

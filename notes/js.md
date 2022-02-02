@@ -20,6 +20,8 @@
 + [JavaScript for impatient programmers (ebook)](https://exploringjs.com/impatient-js/index.html)
 + [Understanding the ECMAScript spec](https://v8.dev/blog/understanding-ecmascript-part-1)
 + [JavaScript module systems showdown](https://auth0.com/blog/javascript-module-systems-showdown/)
++ [6 Ways to Declare JavaScript Functions](https://dmitripavlutin.com/6-ways-to-declare-javascript-functions/)
++ [Resumão do JavaScript moderno 🇧🇷](/notes/resumo-js)
 
 ## 🛠️ Tools
 

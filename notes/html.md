@@ -22,6 +22,7 @@
 
 ## 🛠️ Tools
 
++ [Open Props](https://open-props.style/)
 + [CSS Grid Generator](https://cssgrid-generator.netlify.com/)
 + [Web Almanac](https://almanac.httparchive.org/)
 + [Big list of http static server one-liners](https://gist.github.com/willurd/5720255)
