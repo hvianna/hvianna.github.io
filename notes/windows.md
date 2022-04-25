@@ -55,3 +55,14 @@ Open the File Explorer and paste `%UserProfile%\AppData\Roaming\Microsoft\Window
 Copy the file `TranscodedWallpaper` and add a `.jpg` extension to it.
 
 Source: [https://simpletechtutorials.blogspot.com/2016/07/windows-10-location-of-current.html](https://simpletechtutorials.blogspot.com/2016/07/windows-10-location-of-current.html)
+
+## Copy Windows installation to an SSD
+
+Simpy use [Macrium Reflect](https://www.macrium.com/reflectfree) to clone the entire drive.
+
+Source: [https://www.pcmag.com/how-to/copy-your-windows-installation-to-an-ssd](https://www.pcmag.com/how-to/copy-your-windows-installation-to-an-ssd)
+
+## Redefinir senha de usuário local no Windows 8 ou 10
+
+Referência: [https://tecnoblog.net/responde/redefinir-recuperar-senha-windows-10-8/](https://tecnoblog.net/responde/redefinir-recuperar-senha-windows-10-8/)
+
