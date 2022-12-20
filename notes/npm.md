@@ -49,9 +49,21 @@ See all [options](https://www.npmjs.com/package/http-server#available-options).
 
 `npm install <package>@latest`
 
-### Publishing a beta version of a package to npm
+### Publish a beta version of a package to npm
 
 `npm publish --tag beta`
 
 Reference: https://medium.com/@kevinkreuzer/publishing-a-beta-or-alpha-version-to-npm-46035b630dd7
+
+### Deprecate a published package version
+
+`npm deprecate -f <package>@<version> "message"`
+
+### Add, remove or re-assign tags
+
+The `latest` tag is usually the most recent version published; however, you can re-assign `latest` to any existing version by running:
+
+`npm dist-tag add <package>@<version> latest`
+
+Reference: https://docs.npmjs.com/cli/v9/commands/npm-dist-tag *(thanks FE of npm Support)*
 
