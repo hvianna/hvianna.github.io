@@ -1,6 +1,6 @@
 # Resumão do JavaScript moderno
 
-##### EM CONSTRUÇÃO! Atualizado em 1º/FEV/2022
+##### EM CONSTRUÇÃO! Atualizado em 20/12/2022
 
 ## Nome e origens
 
@@ -37,7 +37,7 @@ Para uma descrição de todas as diferenças do *strict mode*, consulte: https:/
 
 ## Constantes e Variáveis
 
-### `const`
+### `const` [ES6]
 
 * **Imutável** - o valor deve ser atribuído na declaração, mas objetos podem ter **propriedades adicionadas ou modificadas** após a declaração
 * **Escopo de Bloco** - existe dentro do bloco onde for declarada
@@ -76,7 +76,7 @@ console.log( preferencial ); // undefined
 console.log( pessoa ); // { nome: 'Maria', idade: 61, profissao: 'Professora aposentada', idoso: true }
 ```
 
-### `let`
+### `let` [ES6]
 
 * **Mutável** - pode ser declarada sem valor e ter um valor atribuído posteriormente
 * **Escopo de Bloco** - existe dentro do bloco onde for declarada
@@ -151,7 +151,7 @@ for ( const nro in megasena ) {
 }
 ```
 
-### `for ... of`
+### `for ... of` [ES6]
 
 * Itera sobre os **elementos de um array**
 * Não funciona com objetos
@@ -174,7 +174,7 @@ for ( const nro of megasena ) {
 }
 ```
 
-### *array*`.forEach()`
+### *array*`.forEach()` [ES5]
 
 * Permite executar uma função para cada elemento do array
 * É um **método** da classe *Array* - não funciona com outros objetos
@@ -189,7 +189,7 @@ frutas.forEach( function( item, index ) { // a função recebe dois parâmetros:
 frutas.forEach( item => console.log( item ) ); // uso compacto com arrow function, sem utilizar o índice
 ```
 
-### `Object.entries()`
+### `Object.entries()` [ES2017]
 
 * Retorna um array de arrays, onde o primeiro elemento é o nome da propriedade e o segundo elemento é o valor
 * Método **estático** da classe *Object* - sempre chamado na própria classe e não na instância do objeto
@@ -209,7 +209,7 @@ for ( const [ prop, valor ] of Object.entries( pessoa ) ) {
 }
 ```
 
-## *Destructuring* (desestruturação)
+## *Destructuring* (desestruturação) [ES6]
 
 ```js
 const arrayItem = [ 'maçã', 'vermelha', 'fruta' ];
@@ -224,6 +224,8 @@ const [ , ,tipo ] = arrayItem;
 console.log( tipo ); // 'fruta'
 ```
 
+Em objetos a ordem não importa, pois as propriedades são atribuídas pelo nome:
+
 ```js
 const objItem = {
 	tipo: 'fruta',
@@ -231,12 +233,12 @@ const objItem = {
 	cor: 'vermelha'
 }
 
-const { cor, tipo } = objItem; // propriedades são atribuídas por nome
+const { cor, tipo } = objItem; // propriedade 'nome' não é utilizada
 
 console.log( cor ); // 'vermelha'
 console.log( tipo ); // 'fruta'
 
-const { preco, nome } = objItem; // 'preco' não existe no objeto de origem
+const { preco, nome } = objItem; // 'preco' não existe no objeto de origem; isso não gera erro
 
 console.log( nome ); // 'maçã'
 console.log( preco ); // undefined
@@ -252,9 +254,9 @@ let a = 1, b = 2;
 console.log( a, b ); // 2, 1
 ```
 
-## *Spread syntax* (sintaxe de espalhamento ou expansão)
+## *Spread syntax* (sintaxe de espalhamento ou expansão) [ES6]
 
-### Copiar um array ou objeto, evitando atribuição por referência
+### Copiar/clonar um array ou objeto, evitando atribuição por referência
 
 ```js
 novoArray = [ ...arrayAntigo ];
@@ -274,13 +276,26 @@ console.log( frutasCopia ); // [ 'maçã', 'banana', 'laranja' ]
 console.log( frutasNovas ); // [ 'maçã', 'banana' ]
 ```
 
+### Concatenar arrays e objetos
 
-### Combinar propriedades de múltiplos objetos em um novo objeto
+A sintaxe de espalhamento permite também combinar múltiplos arrays ou objetos em um novo array ou objeto:
 
 ```js
-// cria um novo objeto, expandindo dentro dele os objetos listados
-// propriedades com o mesmo nome ficam com o valor declarado por último
+novoArray = [ ...array1, ...array2, ...array3 ];
 novoObjeto = { ...objeto1, ...objeto2, ...objeto3 };
+```
+
+No caso de objetos, propriedades com o mesmo nome ficam com o valor declarado **por último**, como demonstrado abaixo:
+
+```js
+let obj1 = { a: 1, b: 2, x: 3 };
+let obj2 = { x: 7, y: 8, z: 9 }; // a propriedade 'x' existe nos dois objetos
+
+let obj3 = { ...obj1, ...obj2 };
+console.log( obj3 ); // { a: 1, b: 2, x: 7, y: 8, z: 9 }
+
+let obj4 = { ...obj2, ...obj1 };
+console.log( obj4 ); // { a: 1, b: 2, x: 3, y: 8, z: 9 }
 ```
 
 Exemplo prático - aplicar valores *default* a propriedades não definidas:
@@ -289,16 +304,21 @@ Exemplo prático - aplicar valores *default* a propriedades não definidas:
 function validaOpcoes( opcoes = {} ) {
 	const defaults = {
 		min: 0,
-		max: 10,
-		incr: 1
-	}
+		max: 9,
+		inc: 1
+	};
 
-	return { ...defaults, ...opcoes };
+	return { ...defaults, ...opcoes }; // propriedades definidas em 'opcoes' terão preferência
 }
 
-console.log( validaOpcoes() ); // { min: 0, max: 10, incr: 1 }
-console.log( validaOpcoes( { min: -1, max: 20 } ) ); // { min: -1, max: 20, incr: 1 }
+console.log( validaOpcoes() ); // { min: 0, max: 9, inc: 1 }
+console.log( validaOpcoes( { min: -1, max: 10 } ) ); // { min: -1, max: 10, inc: 1 }
 ```
+
+!> Até o **ES5** era necessário utilizar os métodos [`slice()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+e [`concat()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) para evitar a atribuição por referência e concatenar arrays,
+e [`Object.assign()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) para objetos.
+
 
 ## Funções
 
@@ -308,7 +328,7 @@ console.log( validaOpcoes( { min: -1, max: 20 } ) ); // { min: -1, max: 20, incr
 
 *hoisting*, IIFEs, funções anônimas, parâmetros Rest...
 
-### *Arrow functions*
+### *Arrow functions* [ES6]
 
 ```js
 let obj = {

@@ -18,7 +18,7 @@
 **Notes and bookmarks**
 
 * [D-Link DNS-320L NAS 🇧🇷](notes/dns320l)
-* [Docker](notes/docker)
+* [Docker 🇧🇷](notes/docker)
 * [FFmpeg 🇧🇷](notes/ffmpeg)
 * [Git](notes/git)
 * [gitflow 🇧🇷](notes/gitflow)
