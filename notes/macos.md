@@ -53,4 +53,4 @@ Reference: https://developer.apple.com/forums/thread/666661?answerId=647452022#6
 
 ## Install newer macOS versions on unsupported Macs
 
-Check out [dosdude1's patches for Sierra, High Sierra, Mojave and Catalina](http://dosdude1.com/software.html)
+Check out [dosdude1's patches for Sierra, High Sierra, Mojave and Catalina](https://dosdude1.com/software.html)

@@ -182,15 +182,15 @@ IF [%1]==[] (
 ffmpeg -i %1 -c:v copy -map 0:0 "%~n1.h264" -c:a copy -map 0:1 "%~n1.aac" -c:s srt -map 0:2 "%~n1.srt"
 ```
 
-## Vídeo -> GIF animada
+## Vídeo -> GIF/WebP animada
 
-### Gerar palette
+### Gerar palette (GIF)
 
 ```
 ffmpeg -y -i input.mp4 -filter:v "crop=560:264:0:120" -vf fps=15,palettegen palette.png
 ```
 
-### Converter
+### Converter para GIF
 
 Usando crop:
 
@@ -205,11 +205,24 @@ ffmpeg -ss 30 -t 3 -i input.mp4 -i palette.png -filter_complex
 "fps=10,scale=320:-1:flags=lanczos[x];[x][1:v]paletteuse" output.gif
 ```
 
+### Converter para WebP
+
+```
+ffmpeg -i input.mp4 -quality 80 output.webp
+```
+
+Lossless, a partir de frames individuais:
+
+```
+ffmpeg -r 15 -i "frame-%02d.png" -lossless 1 -loop 0 output.webp
+```
+
 ### Referências
 
 + [https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality](https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality)
 + [http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html](http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html)
 + [https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg](https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg)
++ [https://ffmpeg.org/ffmpeg-codecs.html#libwebp](https://ffmpeg.org/ffmpeg-codecs.html#libwebp)
 
 
 ## Vídeo a partir de stills
