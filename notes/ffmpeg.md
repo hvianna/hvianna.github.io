@@ -182,36 +182,33 @@ IF [%1]==[] (
 ffmpeg -i %1 -c:v copy -map 0:0 "%~n1.h264" -c:a copy -map 0:1 "%~n1.aac" -c:s srt -map 0:2 "%~n1.srt"
 ```
 
+## PNG/WebP animada -> GIF
+
+```
+ffmpeg -i input.png -vf "split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" output.gif
+```
+
 ## Vídeo -> GIF/WebP animada
 
-### Gerar palette (GIF)
+GIF, com crop:
 
 ```
-ffmpeg -y -i input.mp4 -filter:v "crop=560:264:0:120" -vf fps=15,palettegen palette.png
+ffmpeg -i input.mp4 -filter_complex "crop=560:264:0:120,fps=15,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" output.gif
 ```
 
-### Converter para GIF
-
-Usando crop:
+GIF, com resize:
 
 ```
-ffmpeg -y -i input.mp4 -i palette.png -filter_complex "crop=560:264:0:120,fps=15,paletteuse" output.gif
+ffmpeg -ss 30 -t 3 -i input.mp4 -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" output.gif
 ```
 
-Usando resize:
-
-```
-ffmpeg -ss 30 -t 3 -i input.mp4 -i palette.png -filter_complex
-"fps=10,scale=320:-1:flags=lanczos[x];[x][1:v]paletteuse" output.gif
-```
-
-### Converter para WebP
+WebP lossy:
 
 ```
 ffmpeg -i input.mp4 -quality 80 output.webp
 ```
 
-Lossless, a partir de frames individuais:
+WebP lossless, com loop infinito, a partir de frames individuais:
 
 ```
 ffmpeg -r 15 -i "frame-%02d.png" -lossless 1 -loop 0 output.webp
