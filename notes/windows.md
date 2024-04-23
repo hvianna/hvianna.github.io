@@ -1,11 +1,13 @@
 # Windows tips
 
-## Enable UTF-8 mode on Python for Windows:
+## UTF-8 support on Windows 10 console / terminal / command prompt
 
-+ Set the the environment variable `PYTHONUTF8=1`, or
-+ Use `-Xutf8` command line option.
++ Open the system's **Language settings**
++ Select **Administrative language settings**
++ Click **Change system locale...**
++ Check **Beta: Use Unicode UTF-8 for worldwide language support**
 
-Source: [https://dev.to/methane/python-use-utf-8-mode-on-windows-212i](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i)
+Source: [https://superuser.com/a/1435645](https://superuser.com/a/1435645)
 
 ## Repair a corrupted USB flash drive and/or recover its full capacity:
 
@@ -66,3 +68,9 @@ Source: [https://www.pcmag.com/how-to/copy-your-windows-installation-to-an-ssd](
 
 Referência: [https://tecnoblog.net/responde/redefinir-recuperar-senha-windows-10-8/](https://tecnoblog.net/responde/redefinir-recuperar-senha-windows-10-8/)
 
+## Enable UTF-8 mode on Python for Windows:
+
++ Set the the environment variable `PYTHONUTF8=1`, or
++ Use `-Xutf8` command line option.
+
+Source: [https://dev.to/methane/python-use-utf-8-mode-on-windows-212i](https://dev.to/methane/python-use-utf-8-mode-on-windows-212i)
