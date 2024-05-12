@@ -67,3 +67,11 @@ The `latest` tag is usually the most recent version published; however, you can 
 
 Reference: https://docs.npmjs.com/cli/v9/commands/npm-dist-tag *(thanks FE of npm Support)*
 
+### Update package versions in package.json on `npm update`
+
+Create a `.npmrc` file with the content below:
+
+```
+# automatically update package versions in package.json when running `npm update`
+save=true
+```
