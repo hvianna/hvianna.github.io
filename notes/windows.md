@@ -9,6 +9,14 @@
 
 Source: [https://superuser.com/a/1435645](https://superuser.com/a/1435645)
 
+## Liberar porta 80 para uso
+
+1. Acessar **_Painel de Controle > Programas e Recursos_**
+1. Clicar em **Ativar ou desativar recursos do Windows**
+1. Desmarcar a opção **Serviços de Informações da Internet**
+
+Source: [Disable IIS and free up port 80](https://superuser.com/a/1377078)
+
 ## Repair a corrupted USB flash drive and/or recover its full capacity:
 
 1. Open a **Command Prompt** as administrator (**cmd.exe**);
