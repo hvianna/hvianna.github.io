@@ -2,8 +2,7 @@
 
 ## Instalação do Docker
 
-+ Baixar o instalador do Docker em: https://store.docker.com/editions/community/docker-ce-desktop-windows
-(necessário criar uma conta no Docker)
++ Download em: https://docs.docker.com/get-docker/
 + Executar o instalador
 + Se for solicitada a ativação do Hyper-V responder Sim (irá reiniciar o PC)
 + Caso o serviço não inicie, verificar a mensagem de erro - pode ser necessário ativar o recurso de virtualização no BIOS.
@@ -23,17 +22,27 @@ Obs.: *teste-mysql* e *teste-wp* podem ser personalizados ao gosto do usuário.
 
 ## Execução
 
-Os passos 1 e 2 só precisam ser realizados uma vez. Depois, basta executar no prompt:
+Os passos acima só precisam ser realizados uma vez. Depois, basta executar no prompt:
 
 `docker start teste-mysql teste-wp`
 
-## Instalação no Windows Home, utilizando VirtualBox:
+Documentação CLI: [https://docs.docker.com/reference/cli/docker/](https://docs.docker.com/reference/cli/docker/)
 
-+ [https://docs.docker.com/toolbox/toolbox_install_windows/](https://docs.docker.com/toolbox/toolbox_install_windows/)
+## Configuração via Docker Compose
 
-## Documentação
+Exemplo de arquivo `docker-composer.yml`:
 
-+ [https://docs.docker.com/engine/reference/commandline/](https://docs.docker.com/engine/reference/commandline/)
+```
+web:
+  image: httpd:alpine
+  ports:
+    - "8000:80"
+  volumes:
+    - ./public:/usr/local/apache2/htdocs/
+    - ~/music:/usr/local/apache2/htdocs/music/
+```
+
+Documentação Compose: [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
 
 ## Cheatsheet
 
