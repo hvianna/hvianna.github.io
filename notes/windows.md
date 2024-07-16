@@ -9,14 +9,6 @@
 
 Source: [https://superuser.com/a/1435645](https://superuser.com/a/1435645)
 
-## Liberar porta 80 para uso
-
-1. Acessar **_Painel de Controle > Programas e Recursos_**
-1. Clicar em **Ativar ou desativar recursos do Windows**
-1. Desmarcar a opção **Serviços de Informações da Internet**
-
-Source: [Disable IIS and free up port 80](https://superuser.com/a/1377078)
-
 ## Repair a corrupted USB flash drive and/or recover its full capacity:
 
 1. Open a **Command Prompt** as administrator (**cmd.exe**);
@@ -30,6 +22,59 @@ Source: [Disable IIS and free up port 80](https://superuser.com/a/1377078)
 1. Finally, type `Exit` and press enter to quit.
 
 Source: [https://www.pendrivelinux.com/restoring-your-usb-key-partition/](https://www.pendrivelinux.com/restoring-your-usb-key-partition/)
+
+## Access Linux filesystems
+
+First, open a command prompt or PowerShell with administrator privileges.
+
+**List available disks:**
+
+```
+wmic diskdrive list brief
+```
+
+or, in PowerShell:
+
+```
+GET-CimInstance -classname Win32_DiskDrive
+```
+
+**Mount a disk:**
+
+```
+wsl --mount <DeviceID> --bare
+```
+
+List the available partitions:
+
+```
+wsl lsblk
+```
+
+Identify the filesystem type:
+
+```
+wsl blkid <BlockDevice>
+```
+
+**Mount the desired partition:**
+
+```
+wsl --mount <DeviceID> --partition <PartitionNumber> --type <Filesystem>
+```
+
+Unmount with:
+
+```
+wsl --unmount <DeviceID>
+```
+
+References:
+
++ [Access Linux filesystems in Windows and WSL 2](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/)
++ [Mount a Linux disk in WSL 2](https://learn.microsoft.com/en-us/windows/wsl/wsl2-mount-disk)
++ [WMIC: WMI command-line utility](https://learn.microsoft.com/en-us/windows/win32/wmisdk/wmic)
++ [PowerShell - Working with WMI](https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/07-working-with-wmi?view=powershell-7.4)
 
 ## Sleep mode troubleshooting:
 
@@ -75,6 +120,14 @@ Source: [https://www.pcmag.com/how-to/copy-your-windows-installation-to-an-ssd](
 ## Redefinir senha de usuário local no Windows 8 ou 10
 
 Referência: [https://tecnoblog.net/responde/redefinir-recuperar-senha-windows-10-8/](https://tecnoblog.net/responde/redefinir-recuperar-senha-windows-10-8/)
+
+## Liberar porta 80 para uso
+
+1. Acessar **_Painel de Controle > Programas e Recursos_**
+1. Clicar em **Ativar ou desativar recursos do Windows**
+1. Desmarcar a opção **Serviços de Informações da Internet**
+
+Source: [Disable IIS and free up port 80](https://superuser.com/a/1377078)
 
 ## Enable UTF-8 mode on Python for Windows:
 
