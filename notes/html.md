@@ -14,6 +14,7 @@
 
 ## 💡 Implementation ideas
 
++ [Visual design rules you can safely follow every time](https://anthonyhobday.com/sideprojects/saferules/)
 + [A simple website](/simple) - [CSS code](https://gist.github.com/hvianna/eaa782ca66c768c3fc90bb21d33c75cc)
 + [Brutalist web design](https://brutalist-web.design/)
 + [Full-Bleed Layout Using CSS Grid](https://joshwcomeau.com/css/full-bleed/)
