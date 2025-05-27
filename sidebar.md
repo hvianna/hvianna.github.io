@@ -30,6 +30,7 @@
 * [npm](notes/npm)
 * [Resumão do JS moderno 🇧🇷](notes/resumo-js)
 * [Static web hosting](notes/web-hosting)
+* [WebGL shaders](notes/webgl)
 * [Windows](notes/windows)
 
 ---
