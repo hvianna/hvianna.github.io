@@ -23,6 +23,7 @@
 
 ## 🛠️ Tools
 
++ [.htaccess Tester](https://technicalseo.com/tools/htaccess/)
 + [Open Props](https://open-props.style/)
 + [CSS Grid Generator](https://cssgrid-generator.netlify.com/)
 + [Web Almanac](https://almanac.httparchive.org/)
