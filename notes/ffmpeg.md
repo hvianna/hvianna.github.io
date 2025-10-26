@@ -2,13 +2,20 @@
 
 ## Codificação H.264 / HEVC / VP9 / AV1
 
-| parâmetro | descrição |
-|--|--|
-| `-c:v` | codec de vídeo: `libx264` para H.264; `libx265` para H.265 / HEVC; `libvpx-vp9` para VP9 (WebM) |
-| `-c:a` | codec de áudio: `aac`, `ac3`, `pcm_s16le`, `pcm_s24le`, `flac` |
-| `-vf` | filtro de vídeo: `yadif` para *deinterlace* |
-| `-preset` | `faster`, `fast`, `medium`, `slow`, `slower` ( > velocidade > tamanho de arquivo ) |
-| `-crf` | `0` = lossless; `51` = pior qualidade - default: `23` para x264; `28` para x265; `31` para vp9 (usar com `-b:v 0`) |
+parâmetro | descrição
+----------|----------
+`-an` | descarta stream(s) de áudio
+`-c:a` *codec* | codec de áudio: `aac`, `ac3`, `pcm_s16le`, `pcm_s24le`, `flac` -- usar `copy` para copiar entrada
+`-c:v` *codec* | codec de vídeo: `libx264` para H.264; `libx265` para H.265 / HEVC; `libvpx-vp9` para VP9 (WebM)
+`-crf` *q* | `0` = lossless; `51` = pior qualidade - default: `23` para x264; `28` para x265; `31` para vp9 (usar com `-b:v 0`)
+`-fflags +discardcorrupt` | ignora pacotes corrompidos (especificar **antes** da entrada causando o erro)
+`-itsoffset` *time* | ajusta o delay - usar **antes** da entrada com a stream a ajustar (ver [time duration syntax](https://ffmpeg.org/ffmpeg-utils.html#time-duration-syntax))
+`-preset` *name*| `faster`, `fast`, `medium`, `slow`, `slower` ( > velocidade > tamanho de arquivo )
+`-shortest` | finaliza a codificação ao término da stream mais curta
+`-sn` | descarta stream(s) de subtitles
+`-stream_loop` *n* | repete a stream *n* vezes (`-1` para repetir infinitamente) - usar **antes** da entrada com a stream desejada
+`-vf` *filter* | filtro de vídeo: `yadif` para *deinterlace*
+`-vn` | descarta stream(s) de vídeo
 
 ### Transcode de vídeo entrelaçado para x.264 progressivo e áudio PCM 24 bits
 ```
@@ -34,7 +41,7 @@ ffmpeg -i input.mkv -map_chapters 0 -c copy -c:v libx264 -preset slow -crf 23 -c
 ```
 
 parâmetro | descrição
---|--
+----------|----------
 `-map_chapters` | índice do arquivo de entrada
 
 ### Referências
@@ -49,11 +56,11 @@ parâmetro | descrição
 
 ## Seeking / splitting
 
-| parâmetro | descrição |
-|--|--|
-| `-ss hh:mm:ss.ddd` | define a posição de início da leitura |
-| `-to hh:mm:ss.ddd` | define a posição de fim da leitura |
-| `-t hh:mm:ss.ddd` | define a **duração** da leitura - mutualmente exclusivo com `-to` |
+parâmetro | descrição
+----------|----------
+`-ss hh:mm:ss.ddd` | define a posição de início da leitura
+`-to hh:mm:ss.ddd` | define a posição de fim da leitura
+`-t hh:mm:ss.ddd` | define a **duração** da leitura - mutualmente exclusivo com `-to`
 
 Quando o parâmetro `-ss` é informado **antes** da entrada, o ffmpeg se baseia nos keyframes do arquivo de entrada e decodifica apenas os frames necessários para o posicionamento exato. Com o parâmetro `ss` **após** a entrada, o ffmpeg irá decodificar e descartar todos os frames até o ponto desejado.
 
@@ -80,7 +87,6 @@ ffmpeg -ss 0:51:22 -i input.m2ts -ss 0:51:22.712 -to 0:55:18.281 -c:v copy -c:a 
 ```
 ffmpeg -i "concat:00004.m2ts|00005.m2ts|00003.m2ts" -c:v libx264 -preset slow -crf 23 -c:a pcm_s24le w:output.mkv
 ```
-
 
 + **Concat Demuxer** - para arquivos com o **mesmo codec** e qualquer *container* [(Documentação)](https://trac.ffmpeg.org/wiki/Concatenate).
 
@@ -116,7 +122,7 @@ ffmpeg -i input.m2ts -map 0:0 -map 0:2 -c:v:0 copy -c:a:0 copy output.m2ts
 > + Stream #0:0 -> #0:0 (copy)
 > + Stream #0:2 -> #0:1 (copy)
 
-> **A ordem das opções `-map` define a ordem das streams no arquivo de saída:**
+?> A ordem das opções `-map` define a ordem das streams no arquivo de saída
 
 ```
 ffprobe output.m2ts
@@ -150,14 +156,6 @@ ffmpeg -i nee.mp4 -i nee.vob
 ```
 ffmpeg -i nee.mp4 -itsoffset -0.9 -i nee.vob -map 0:0 -map 1:2 -c:v copy -c:a pcm_s16le nee.mkv
 ```
-
-Parâmetros opcionais:
-
-parâmetro | descrição
---|--
-`-itsoffset` | ajusta o delay - usar **antes** da entrada com a stream a ajustar (ver [time duration syntax](https://ffmpeg.org/ffmpeg-utils.html#time-duration-syntax))
-`-fflags +discardcorrupt` | ignora pacotes corruptos (especificar **antes** da entrada causando o erro)
-`-shortest` | finaliza a codificação ao término da stream mais curta
 
 ### Adicionar legendas a um vídeo
 ```
@@ -230,7 +228,7 @@ ffmpeg -r 29.97 -i "%06d.png" -pix_fmt yuv420p -c:v libx265 -crf 28 output.mp4
 IMPORTANTE: a extensão `.mp4` possibilita a geração de *timestamps* corretos para posterior multiplexação com áudio.
 
 parâmetro | descrição
---|--
+----------|----------
 `-pix_fmt` | [Chroma subsampling format](https://trac.ffmpeg.org/wiki/Chroma%20Subsampling)
 `-r` | Frame rate (deve vir **antes** do `-i`)
 
@@ -247,7 +245,7 @@ ffmpeg -i input.mp4 -i logo.png -filter_complex "[0:v][1:v] overlay=1620:980:ena
 ```
 
 parâmetro | descrição
---|--
+----------|----------
 `[0:v][1:v]` | ordem de sobreposição das entradas de vídeo
 `overlay=1620:980` | posição X:Y da imagem a partir do canto superior esquerdo
 `overlay=W-w:H-h` | idem acima, porém calcula automaticamente as dimensões do vídeo (W,H) menos as dimensões da imagem (w,h)
@@ -274,8 +272,10 @@ ffmpeg -i 00002.m2ts -c:v copy -c:a pcm_s24le -ss 0:51:22.712 -to 0:55:18.281 "L
 ffmpeg -i input.mp4 -vcodec copy -acodec aac -b:a 320k -ar 44100 output.mp4
 ```
 
-+ `-ar` = sampling rate (Hz)
-+ `-b:a` = bitrate (bps)
+parâmetro | descrição
+----------|----------
+`-ar` *rate* | sampling rate (Hz)
+`-b:a` *rate* | bitrate (bps)
 
 ### Referências
 
