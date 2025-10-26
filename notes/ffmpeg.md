@@ -113,7 +113,7 @@ ffprobe input.m2ts
 > Stream #0:4[0x1101]: Audio: eac3 (AC-3 / 0x332D4341), 48000 Hz, 7.1, fltp, 1664 kb/s<br>
 > Stream #0:5[0x1102]: Audio: ac3 (AC-3 / 0x332D4341), 48000 Hz, 5.1(side), fltp, 640 kb/s
 
-### Extrair streams selecionadas sem recodificar
+### Copiar streams selecionadas
 
 ```
 ffmpeg -i input.m2ts -map 0:0 -map 0:2 -c:v:0 copy -c:a:0 copy output.m2ts
@@ -130,6 +130,16 @@ ffprobe output.m2ts
 > Stream #0:0&#58; Video: hevc (Main 10) (HDMV / 0x564D4448), yuv420p10le, 3840x2160 [SAR 1:1 DAR 16:9], q=2-31, 23.98 fps<br>
 > Stream #0:1&#58; Audio: truehd (AC-3 / 0x332D4341), 48000 Hz, 7.1, s32 (24 bit)
 
+### Excluir streams selecionadas
+
+Primeiro mapeie todas as streams com `-map 0 -c copy` e depois exclua streams específicas usando `-map -0:tipo_stream:indice`<br>
+Por exemplo, para remover a *segunda* stream (índice 1) de *áudio*, use `-map -0:a:1`
+
+O exemplo abaixo remove as streams de áudio #3, #4 e #5, combinando mapeamentos negativos:
+
+```
+ffmpeg -i input.mkv -map 0 -map -0:a:2 -map -0:a:3 -map -0:a:4 -c copy output.mkv
+```
 
 ### Multiplexar streams elementares
 
