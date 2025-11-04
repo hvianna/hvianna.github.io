@@ -28,6 +28,7 @@
 + [CSS Grid Generator](https://cssgrid-generator.netlify.com/)
 + [Web Almanac](https://almanac.httparchive.org/)
 + [Big list of http static server one-liners](https://gist.github.com/willurd/5720255)
++ [htmx - high power tools for HTML](https://htmx.org/)
 
 ## 👨‍💻 CSS native font stacks
 
